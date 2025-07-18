@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SafeWay Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(to right, rgb(212, 56, 8), #2575fc);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-box {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #333;
+      border-radius: 35px;
+      box-shadow: 20px 4px 20px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      width: 400px;
+    }
+
+    .register-logo a {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      color: #6a11cb;
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      width: 100%;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #4c0ba6;
+    }
+
+    .alert {
+      display: none;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .alert-success {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .alert-error {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #6a11cb;
+    }
+  </style>
+</head>
+<body>
+<div class="register-box">
+  <div class="register-logo">
+    <a href="#">SafeWay</a>
+  </div>
+
+  <div id="alertBox" class="alert"></div>
+
+  <form id="signupForm">
+    <input type="text" id="fullName" placeholder="Full Name" class="form-control" required />
+    <input type="email" id="email" placeholder="Email" class="form-control" required />
+    <input type="password" id="password" placeholder="Password" class="form-control" required />
+    
+    <select id="role" class="form-control" required>
+      <option value="" disabled selected>Select your role</option>
+      <option value="admin">Admin</option>
+      <option value="Dwellers">New City Dwellers</option>
+      <option value="Students">Students</option>
+      <option value="Tourists">Tourists</option>
+      <option value="Workers">Night Shift Workers</option>
+    </select>
+
+    <div style="margin-bottom: 15px;">
+      <input type="checkbox" id="agree" required />
+      <label for="agree">I agree to the <a href="images/Terms.pdf" target="_blank">terms and conditions</a></label>
+    </div>
+
+    <button type="submit" class="btn">Sign Up</button>
+  </form>
+
+  <a href="login.html">I already have a membership</a>
+</div>
+
+<script>
+  const dummyUsers = [];
+
+  document.getElementById("signupForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const role = document.getElementById("role").value;
+    const agree = document.getElementById("agree").checked;
+
+    const alertBox = document.getElementById("alertBox");
+    alertBox.style.display = "none";
+
+    if (!agree) {
+      showAlert("You must agree to the terms and conditions.", "error");
+      return;
+    }
+
+    const emailExists = dummyUsers.some(user => user.email === email);
+
+    if (emailExists) {
+      showAlert("Email already registered.", "error");
+      return;
+    }
+
+    dummyUsers.push({
+      fullName,
+      email,
+      password,
+      role
+    });
+
+    showAlert("Welcome to SafeWay! Your account has been created.", "success");
+
+    this.reset();
+
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 2000);
+  });
+
+  function showAlert(message, type) {
+    const alertBox = document.getElementById("alertBox");
+    alertBox.textContent = message;
+    alertBox.className = `alert alert-${type}`;
+    alertBox.style.display = "block";
+  }
+</script>
+</body>
+</html>

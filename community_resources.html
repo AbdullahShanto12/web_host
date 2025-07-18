@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community Resources - SafeWay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS & Fonts -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+
+    <style>
+  :root {
+    --primary: #004085;
+    --accent: #007bff;
+    --light-bg: #f4f7fb;
+    --dark-bg: #1c1f22;
+    --white: #ffffff;
+    --dark-text: #2d3436;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light-bg);
+    color: var(--dark-text);
+    margin: 0;
+  }
+
+  /* Navbar */
+  .main-header.navbar {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .main-header .nav-link {
+    color: #cfe7ff;
+    font-weight: 500;
+  }
+
+  .main-header .nav-link:hover {
+    color: white;
+  }
+
+  /* Sidebar */
+  .main-sidebar {
+    background-color: var(--dark-bg);
+    color: var(--white);
+  }
+
+  .main-sidebar .brand-link {
+    background-color: #22262b;
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid #003366;
+  }
+
+  .main-sidebar .nav-link {
+    color: #cfd9ff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .main-sidebar .nav-link .nav-icon {
+    color: #a0b8ff;
+  }
+
+  .main-sidebar .nav-link.active,
+  .main-sidebar .nav-link:hover {
+    background-color: #e6f0ff;
+    color: #001f3f;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+
+  .main-sidebar .nav-link.active .nav-icon,
+  .main-sidebar .nav-link:hover .nav-icon {
+    color: #001f3f;
+  }
+
+  /* Page Container */
+  .content-wrapper {
+    background-color: var(--light-bg);
+    padding: 2rem 1rem;
+  }
+
+  .card.bg-white {
+    border-radius: 14px;
+    border: 1px solid #e1eaf1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+  }
+
+  h2.text-primary {
+    color: #003366 !important;
+    font-weight: bold;
+  }
+
+  p.text-muted {
+    font-size: 1rem;
+  }
+
+  /* Stats Cards */
+  .stats-card {
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease-in-out;
+  }
+
+  .stats-card:hover {
+    transform: scale(1.05);
+  }
+
+  .stats-card h3 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .stats-card small {
+    font-size: 0.9rem;
+    color: #f8f9fa;
+  }
+
+  /* Filters */
+  .filter-form label {
+    font-weight: 600;
+    color: #003366;
+  }
+
+  .filter-form .form-control {
+    border-radius: 10px;
+    border: 1px solid #ccddee;
+    transition: 0.2s ease;
+  }
+
+  .filter-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+
+  .filter-form .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    font-weight: 600;
+  }
+
+  .filter-form .btn-outline-secondary {
+    border-radius: 8px;
+  }
+
+  /* Map */
+  #map {
+    height: 550px;
+    border-radius: 12px;
+    border: 3px solid #004085;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Table */
+  .table-responsive {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  .table thead {
+    background-color: #003366;
+    color: white;
+    font-weight: bold;
+  }
+
+  .table-striped tbody tr:hover {
+    background-color: #e3f2fd;
+  }
+
+  .badge-category {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .purpose-highlight {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #007bff;
+    cursor: help;
+    text-decoration: underline dotted;
+  }
+
+  .table td a.btn-outline-success {
+    font-weight: 500;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .filter-form .form-row {
+      flex-direction: column;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+  }
+  .main-header .nav-link {
+    color: white !important;
+  }
+  .main-header .nav-link:hover {
+    color: #ffdd57 !important;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark" style="background-color: #003366;">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
+      <li class="nav-item d-none d-sm-inline-block"><a href="dashboard.html" class="nav-link">Home</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Sidebar -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="dashboard.html" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="SafeWay Logo" class="brand-image img-circle elevation-3">
+      <span class="brand-text font-weight-light">SafeWay</span>
+    </a>
+    <div class="sidebar">
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" role="menu">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a></li>
+          <li class="nav-item"><a href="location_search.html" class="nav-link"><i class="nav-icon fas fa-search-location"></i><p>Basic Location Search</p></a></li>
+          <li class="nav-item"><a href="map_explore.html" class="nav-link"><i class="nav-icon fas fa-map-marked-alt"></i><p>Map Exploration</p></a></li>
+          <li class="nav-item"><a href="safety_ratings.html" class="nav-link"><i class="nav-icon fas fa-eye"></i><p>Visual Safety Ratings</p></a></li>
+          <li class="nav-item"><a href="check_safety.html" class="nav-link"><i class="nav-icon fas fa-shield-alt"></i><p>Check Before Going Out</p></a></li>
+          <li class="nav-item"><a href="identify_routes.html" class="nav-link"><i class="nav-icon fas fa-route"></i><p>Identify Safer Routes</p></a></li>
+          <li class="nav-item"><a href="filter_incidents.html" class="nav-link"><i class="nav-icon fas fa-filter"></i><p>Filter Incidents</p></a></li>
+          <li class="nav-item"><a href="crime_hotspot.html" class="nav-link"><i class="nav-icon fas fa-exclamation-triangle"></i><p>Crime Hotspot Tracker</p></a></li>
+          <li class="nav-item"><a href="community_resources.html" class="nav-link active"><i class="nav-icon fas fa-hands-helping"></i><p>Community Resources</p></a></li>
+          <li class="nav-item"><a href="understand_factors.html" class="nav-link"><i class="nav-icon fas fa-lightbulb"></i><p>Understanding Safety Factors</p></a></li>
+          <li class="nav-item"><a href="legend_info.html" class="nav-link"><i class="nav-icon fas fa-map"></i><p>Using the Legend</p></a></li>
+          <li class="nav-item"><a href="send_notifications.html" class="nav-link"><i class="nav-icon fas fa-bell"></i><p>Send Notifications</p></a></li>
+          <li class="nav-item"><a href="all_notifications.html" class="nav-link"><i class="nav-icon fas fa-bell"></i><p>All Notifications</p></a></li>
+          <li class="nav-item"><a href="emergency_calls.html" class="nav-link"><i class="nav-icon fas fa-phone-alt"></i><p>Emergency Calls</p></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link"><i class="nav-icon fas fa-sign-out-alt"></i><p>Logout</p></a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <div class="content-wrapper p-3">
+    <div class="container-fluid">
+      <div class="card bg-white">
+        <div class="card-body">
+          <h2 class="mb-3 text-primary"><i class="fas fa-map-marked-alt"></i> Community Resources & Help Points</h2>
+          <p class="text-muted">Explore trusted community and NGO resources for safety and well-being in your area.</p>
+
+          <!-- Stats -->
+          <div class="row text-white">
+            <div class="col-md-4">
+              <div class="stats-card bg-info">
+                <h3 class="count" data-count="5">0</h3>
+                <small>Total Resources</small>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="stats-card bg-success">
+                <h3 class="count" data-count="3">0</h3>
+                <small>Unique Categories</small>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="stats-card bg-danger">
+                <h3 class="count" data-count="2">0</h3>
+                <small>Distinct Areas</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <form class="mb-4 filter-form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="category">Category</label>
+                <select id="category" class="form-control">
+                  <option value="">All</option>
+                  <option value="Medical">Medical</option>
+                  <option value="Shelter">Shelter</option>
+                  <option value="Food">Food</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="area">Area</label>
+                <select id="area" class="form-control">
+                  <option value="">All</option>
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Chittagong">Chittagong</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="search">Search</label>
+                <input type="search" id="search" class="form-control" placeholder="Search...">
+              </div>
+              <div class="form-group col-md-2 d-flex align-items-end">
+                <button type="button" class="btn btn-primary btn-block"><i class="fas fa-filter"></i> Filter</button>
+              </div>
+            </div>
+            <a href="community_resources.html" class="btn btn-sm btn-outline-secondary"><i class="fas fa-redo"></i> Reset</a>
+          </form>
+
+          <!-- Map -->
+          <div id="map" class="mb-4" style="height: 400px;"></div>
+
+          <!-- Table -->
+          <div class="table-responsive">
+            <table id="resourceTable" class="table table-striped table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Location</th>
+                  <th>Purpose</th>
+                  <th>Hours</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap4.min.js"></script>
+<script>
+  const markersData = [
+    { name: "Hope Medical Center", category: "Medical", lat: 23.8103, lng: 90.4125, location: "Dhaka", purpose: "General Health Checkups", hours: "9AM - 5PM", contact: "0123456789", description: "Affordable care." },
+    { name: "Sunlight Shelter", category: "Shelter", lat: 23.8150, lng: 90.4200, location: "Dhaka", purpose: "Emergency Shelter", hours: "24/7", contact: "0987654321", description: "Open every day." },
+    { name: "Food For All", category: "Food", lat: 22.3569, lng: 91.7832, location: "Chittagong", purpose: "Free Meals", hours: "12PM - 3PM", contact: "01711223344", description: "Lunch provided." }
+  ];
+
+  const tableBody = document.querySelector("#resourceTable tbody");
+  markersData.forEach(res => {
+    const row = `<tr>
+      <td>${res.name}</td>
+      <td><span class="badge badge-info"><i class="fas fa-tag"></i> ${res.category}</span></td>
+      <td>${res.location}</td>
+      <td><span class="purpose-highlight" data-toggle="tooltip" title="${res.description}">${res.purpose}</span></td>
+      <td>${res.hours}</td>
+      <td><a href="tel:${res.contact}" class="btn btn-sm btn-outline-success"><i class="fas fa-phone"></i> Call</a></td>
+    </tr>`;
+    tableBody.insertAdjacentHTML("beforeend", row);
+  });
+
+  const map = L.map('map').setView([23.8103, 90.4125], 7);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+  markersData.forEach(m => {
+    L.marker([m.lat, m.lng]).addTo(map).bindPopup(`
+      <strong>${m.name}</strong><br/>
+      <span class="badge badge-info">${m.category}</span><br/>
+      📍 ${m.location}<br/>
+      <b>Purpose:</b> ${m.purpose}
+    `);
+  });
+
+  $('[data-toggle="tooltip"]').tooltip();
+
+  document.querySelectorAll(".count").forEach(counter => {
+    let end = +counter.dataset.count;
+    let step = Math.ceil(end / 50);
+    let count = 0;
+    let update = () => {
+      count += step;
+      counter.innerText = count >= end ? end : count;
+      if (count < end) requestAnimationFrame(update);
+    };
+    update();
+  });
+
+  $('#resourceTable').DataTable();
+</script>
+</body>
+</html>
