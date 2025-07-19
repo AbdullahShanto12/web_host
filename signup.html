@@ -1,62 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SafeWay Signup</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <title>SafeWay Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
   <style>
-    body {
-      background: linear-gradient(to right, rgb(212, 56, 8), #2575fc);
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body,
+    html {
+      height: 100%;
+      font-family: "Poppins", sans-serif;
+      /* Replace the URL below with your clear background image URL */
+      background: url("picture.jpg") no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle overlay to keep text readable but preserve background clarity */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 0;
     }
 
     .register-box {
-      background-color: rgba(255, 255, 255, 0.95);
-      color: #333;
-      border-radius: 35px;
-      box-shadow: 20px 4px 20px rgba(0, 0, 0, 0.2);
-      padding: 30px;
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
+      border-radius: 20px;
+      padding: 40px;
       width: 400px;
+      color: white;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .register-logo a {
-      display: block;
       font-size: 2rem;
       font-weight: bold;
+      display: block;
       text-align: center;
-      color: #6a11cb;
+      color: #a5d6ff;
       margin-bottom: 20px;
+      text-decoration: none;
+      user-select: none;
     }
 
     .form-control {
       width: 100%;
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid #ccc;
-      margin-bottom: 15px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 15px;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .form-control::placeholder {
+      color: #ddd;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #66ffcc;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg fill='white' viewBox='0 0 20 20'%3E%3Cpath d='M5.516 7.548L10 12.032l4.484-4.484a1 1 0 0 1 1.415 1.415l-5.191 5.191a1 1 0 0 1-1.415 0L4.1 8.963a1 1 0 1 1 1.415-1.415z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
     }
 
     .btn {
       width: 100%;
-      background-color: #6a11cb;
-      color: white;
-      border: none;
-      padding: 12px;
+      padding: 14px;
       font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      border: none;
       border-radius: 12px;
+      color: black;
       cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
     }
 
     .btn:hover {
-      background-color: #4c0ba6;
+      background: linear-gradient(to right, #00b4db, #69f0ae);
     }
 
     .alert {
@@ -64,8 +120,8 @@
       margin-bottom: 15px;
       padding: 10px;
       border-radius: 8px;
-      font-weight: bold;
       text-align: center;
+      font-weight: 500;
     }
 
     .alert-success {
@@ -78,96 +134,139 @@
       color: white;
     }
 
-    a {
+    .terms {
+      font-size: 14px;
+      color: #ddd;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    .terms a {
+      color: #87f3ff;
+      text-decoration: underline;
+    }
+
+    a.login-link {
       display: block;
       text-align: center;
-      margin-top: 10px;
-      color: #6a11cb;
+      color: #ccc;
+      margin-top: 20px;
+      font-size: 14px;
+      user-select: none;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a.login-link:hover {
+      color: #a5d6ff;
+    }
+
+    @media (max-width: 480px) {
+      .register-box {
+        width: 90%;
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
-<div class="register-box">
-  <div class="register-logo">
-    <a href="#">SafeWay</a>
-  </div>
-
-  <div id="alertBox" class="alert"></div>
-
-  <form id="signupForm">
-    <input type="text" id="fullName" placeholder="Full Name" class="form-control" required />
-    <input type="email" id="email" placeholder="Email" class="form-control" required />
-    <input type="password" id="password" placeholder="Password" class="form-control" required />
-    
-    <select id="role" class="form-control" required>
-      <option value="" disabled selected>Select your role</option>
-      <option value="admin">Admin</option>
-      <option value="Dwellers">New City Dwellers</option>
-      <option value="Students">Students</option>
-      <option value="Tourists">Tourists</option>
-      <option value="Workers">Night Shift Workers</option>
-    </select>
-
-    <div style="margin-bottom: 15px;">
-      <input type="checkbox" id="agree" required />
-      <label for="agree">I agree to the <a href="images/Terms.pdf" target="_blank">terms and conditions</a></label>
+  <div class="register-box" role="main" aria-label="Sign up form">
+    <div class="register-logo">
+      <a href="#">SafeWay</a>
     </div>
 
-    <button type="submit" class="btn">Sign Up</button>
-  </form>
+    <div id="alertBox" class="alert" role="alert" aria-live="polite"></div>
 
-  <a href="login.html">I already have a membership</a>
-</div>
+    <form id="signupForm" novalidate>
+      <input
+        type="text"
+        id="fullName"
+        placeholder="Full Name"
+        class="form-control"
+        required
+        aria-required="true"
+      />
+      <input
+        type="email"
+        id="email"
+        placeholder="Email Address"
+        class="form-control"
+        required
+        aria-required="true"
+      />
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        class="form-control"
+        required
+        aria-required="true"
+      />
 
-<script>
-  const dummyUsers = [];
+      <select id="role" class="form-control" required aria-required="true" aria-label="Select your role">
+        <option value="" disabled selected>Select Your Role</option>
+        <option value="admin">Admin</option>
+        <option value="Dwellers">New City Dwellers</option>
+        <option value="Students">Students</option>
+        <option value="Tourists">Tourists</option>
+        <option value="Workers">Night Shift Workers</option>
+      </select>
 
-  document.getElementById("signupForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+      <div class="terms">
+        <input type="checkbox" id="agree" required aria-required="true" />
+        <label for="agree">I agree to the <a href="images/Terms.pdf" target="_blank">terms and conditions</a></label>
+      </div>
 
-    const fullName = document.getElementById("fullName").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const role = document.getElementById("role").value;
-    const agree = document.getElementById("agree").checked;
+      <button type="submit" class="btn" aria-label="Sign up">Sign Up</button>
+    </form>
 
-    const alertBox = document.getElementById("alertBox");
-    alertBox.style.display = "none";
+    <a href="login.html" class="login-link">Already have an account? Log in</a>
+  </div>
 
-    if (!agree) {
-      showAlert("You must agree to the terms and conditions.", "error");
-      return;
-    }
+  <script>
+    const dummyUsers = [];
 
-    const emailExists = dummyUsers.some(user => user.email === email);
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    if (emailExists) {
-      showAlert("Email already registered.", "error");
-      return;
-    }
+      const fullName = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const role = document.getElementById("role").value;
+      const agree = document.getElementById("agree").checked;
+      const alertBox = document.getElementById("alertBox");
 
-    dummyUsers.push({
-      fullName,
-      email,
-      password,
-      role
+      alertBox.style.display = "none";
+
+      if (!agree) {
+        showAlert("You must agree to the terms and conditions.", "error");
+        return;
+      }
+
+      const emailExists = dummyUsers.some((user) => user.email === email);
+
+      if (emailExists) {
+        showAlert("Email already registered.", "error");
+        return;
+      }
+
+      dummyUsers.push({ fullName, email, password, role });
+
+      showAlert("Welcome to SafeWay! Your account has been created.", "success");
+
+      this.reset();
+
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 2000);
     });
 
-    showAlert("Welcome to SafeWay! Your account has been created.", "success");
-
-    this.reset();
-
-    setTimeout(() => {
-      window.location.href = "login.html";
-    }, 2000);
-  });
-
-  function showAlert(message, type) {
-    const alertBox = document.getElementById("alertBox");
-    alertBox.textContent = message;
-    alertBox.className = `alert alert-${type}`;
-    alertBox.style.display = "block";
-  }
-</script>
+    function showAlert(message, type) {
+      const alertBox = document.getElementById("alertBox");
+      alertBox.textContent = message;
+      alertBox.className = `alert alert-${type}`;
+      alertBox.style.display = "block";
+    }
+  </script>
 </body>
 </html>
