@@ -267,88 +267,94 @@
     </div>
   </aside>
 
+
+
+
   <!-- Content -->
-  <div class="content-wrapper p-3">
-    <div class="container-fluid">
-      <div class="card bg-white">
-        <div class="card-body">
-          <h2 class="mb-3 text-primary"><i class="fas fa-map-marked-alt"></i> Community Resources & Help Points</h2>
-          <p class="text-muted">Explore trusted community and NGO resources for safety and well-being in your area.</p>
+<div class="content-wrapper p-3">
+  <div class="container-fluid">
+    <div class="card bg-white">
+      <div class="card-body">
+        <h2 class="mb-3 text-primary"><i class="fas fa-map-marked-alt"></i> Community Resources & Help Points</h2>
+        <p class="text-muted">Explore trusted community and NGO resources for safety and well-being in your area.</p>
 
-          <!-- Stats -->
-          <div class="row text-white">
-            <div class="col-md-4">
-              <div class="stats-card bg-info">
-                <h3 class="count" data-count="5">0</h3>
-                <small>Total Resources</small>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="stats-card bg-success">
-                <h3 class="count" data-count="3">0</h3>
-                <small>Unique Categories</small>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="stats-card bg-danger">
-                <h3 class="count" data-count="2">0</h3>
-                <small>Distinct Areas</small>
-              </div>
+        <!-- Stats -->
+        <div class="row text-white">
+          <div class="col-md-4">
+            <div class="stats-card bg-info text-center p-3 rounded">
+              <h3 class="count" data-count="10">0</h3>
+              <small>Total Resources</small>
             </div>
           </div>
-
-          <!-- Filters -->
-          <form class="mb-4 filter-form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <label for="category">Category</label>
-                <select id="category" class="form-control">
-                  <option value="">All</option>
-                  <option value="Medical">Medical</option>
-                  <option value="Shelter">Shelter</option>
-                  <option value="Food">Food</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="area">Area</label>
-                <select id="area" class="form-control">
-                  <option value="">All</option>
-                  <option value="Dhaka">Dhaka</option>
-                  <option value="Chittagong">Chittagong</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
-                <label for="search">Search</label>
-                <input type="search" id="search" class="form-control" placeholder="Search...">
-              </div>
-              <div class="form-group col-md-2 d-flex align-items-end">
-                <button type="button" class="btn btn-primary btn-block"><i class="fas fa-filter"></i> Filter</button>
-              </div>
+          <div class="col-md-4">
+            <div class="stats-card bg-success text-center p-3 rounded">
+              <h3 class="count" data-count="4">0</h3>
+              <small>Unique Categories</small>
             </div>
-            <a href="community_resources.html" class="btn btn-sm btn-outline-secondary"><i class="fas fa-redo"></i> Reset</a>
-          </form>
-
-          <!-- Map -->
-          <div id="map" class="mb-4" style="height: 400px;"></div>
-
-          <!-- Table -->
-          <div class="table-responsive">
-            <table id="resourceTable" class="table table-striped table-bordered">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Name</th>
-                  <th>Category</th>
-                  <th>Location</th>
-                  <th>Purpose</th>
-                  <th>Hours</th>
-                  <th>Contact</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
           </div>
-
+          <div class="col-md-4">
+            <div class="stats-card bg-danger text-center p-3 rounded">
+              <h3 class="count" data-count="5">0</h3>
+              <small>Distinct Areas</small>
+            </div>
+          </div>
         </div>
+
+        <!-- Filters -->
+        <form class="mb-4 filter-form">
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="category">Category</label>
+              <select id="category" class="form-control">
+                <option value="">All</option>
+                <option value="Medical">Medical</option>
+                <option value="Shelter">Shelter</option>
+                <option value="Food">Food</option>
+                <option value="Help">Help</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="area">Area</label>
+              <select id="area" class="form-control">
+                <option value="">All</option>
+                <option value="Dhanmondi">Dhanmondi</option>
+                <option value="Uttara">Uttara</option>
+                <option value="Jamuna">Jamuna</option>
+                <option value="Gulshan">Gulshan</option>
+                <option value="Mirpur">Mirpur</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="search">Search</label>
+              <input type="search" id="search" class="form-control" placeholder="Search...">
+            </div>
+            <div class="form-group col-md-2 d-flex align-items-end">
+              <button type="button" class="btn btn-primary btn-block"><i class="fas fa-filter"></i> Filter</button>
+            </div>
+          </div>
+          <a href="community_resources.html" class="btn btn-sm btn-outline-secondary"><i class="fas fa-redo"></i> Reset</a>
+        </form>
+
+        <!-- Map -->
+        <div id="map" class="mb-4 rounded shadow" style="height: 400px;"></div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table id="resourceTable" class="table table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Location</th>
+                <th>Purpose</th>
+                <th>Hours</th>
+                <th>Contact</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
       </div>
     </div>
   </div>
@@ -363,54 +369,217 @@
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap4.min.js"></script>
+
 <script>
   const markersData = [
-    { name: "Hope Medical Center", category: "Medical", lat: 23.8103, lng: 90.4125, location: "Dhaka", purpose: "General Health Checkups", hours: "9AM - 5PM", contact: "0123456789", description: "Affordable care." },
-    { name: "Sunlight Shelter", category: "Shelter", lat: 23.8150, lng: 90.4200, location: "Dhaka", purpose: "Emergency Shelter", hours: "24/7", contact: "0987654321", description: "Open every day." },
-    { name: "Food For All", category: "Food", lat: 22.3569, lng: 91.7832, location: "Chittagong", purpose: "Free Meals", hours: "12PM - 3PM", contact: "01711223344", description: "Lunch provided." }
+    {
+      name: "Dhanmondi Women's Health Clinic",
+      category: "Medical",
+      lat: 23.7465,
+      lng: 90.3760,
+      location: "Dhanmondi",
+      purpose: "Women's Health Services",
+      hours: "8AM - 6PM",
+      contact: "01300112233",
+      description: "Specialized care for women and children."
+    },
+    {
+      name: "Safe Haven Dhanmondi",
+      category: "Shelter",
+      lat: 23.7489,
+      lng: 90.3754,
+      location: "Dhanmondi",
+      purpose: "Emergency Shelter",
+      hours: "24/7",
+      contact: "01444123456",
+      description: "Secure night shelter for women in distress."
+    },
+    {
+      name: "Uttara Family Medical",
+      category: "Medical",
+      lat: 23.8748,
+      lng: 90.3984,
+      location: "Uttara",
+      purpose: "Family Healthcare",
+      hours: "9AM - 9PM",
+      contact: "01722001122",
+      description: "General outpatient and diagnostics."
+    },
+    {
+      name: "Uttara SafeHouse",
+      category: "Shelter",
+      lat: 23.8755,
+      lng: 90.4012,
+      location: "Uttara",
+      purpose: "Women’s Shelter",
+      hours: "24/7",
+      contact: "01888885555",
+      description: "Emergency refuge with basic facilities."
+    },
+    {
+      name: "Jamuna Food Point",
+      category: "Food",
+      lat: 23.8151,
+      lng: 90.4252,
+      location: "Jamuna",
+      purpose: "Free Lunch Meals",
+      hours: "1PM - 3PM",
+      contact: "01611110000",
+      description: "Nutritious meals for women and children."
+    },
+    {
+      name: "Jamuna First Aid Hub",
+      category: "Medical",
+      lat: 23.8130,
+      lng: 90.4230,
+      location: "Jamuna",
+      purpose: "Emergency First Aid",
+      hours: "24/7",
+      contact: "01919191919",
+      description: "Basic trauma and wound support."
+    },
+    {
+      name: "Gulshan Help Center",
+      category: "Help",
+      lat: 23.7925,
+      lng: 90.4078,
+      location: "Gulshan",
+      purpose: "Legal & Psychological Aid",
+      hours: "10AM - 5PM",
+      contact: "01717171717",
+      description: "Support for harassment and legal aid."
+    },
+    {
+      name: "Gulshan Medical Aid",
+      category: "Medical",
+      lat: 23.7900,
+      lng: 90.4089,
+      location: "Gulshan",
+      purpose: "Medical Checkup",
+      hours: "9AM - 7PM",
+      contact: "01555555555",
+      description: "Outpatient department with female doctors."
+    },
+    {
+      name: "Mirpur Community Kitchen",
+      category: "Food",
+      lat: 23.8041,
+      lng: 90.3667,
+      location: "Mirpur",
+      purpose: "Hot Meals for All",
+      hours: "12PM - 2PM",
+      contact: "01819191919",
+      description: "Free cooked meals every afternoon."
+    },
+    {
+      name: "Mirpur Protection Unit",
+      category: "Help",
+      lat: 23.8065,
+      lng: 90.3679,
+      location: "Mirpur",
+      purpose: "Police Assistance",
+      hours: "24/7",
+      contact: "999",
+      description: "On-demand security for emergencies."
+    }
   ];
 
-  const tableBody = document.querySelector("#resourceTable tbody");
-  markersData.forEach(res => {
-    const row = `<tr>
-      <td>${res.name}</td>
-      <td><span class="badge badge-info"><i class="fas fa-tag"></i> ${res.category}</span></td>
-      <td>${res.location}</td>
-      <td><span class="purpose-highlight" data-toggle="tooltip" title="${res.description}">${res.purpose}</span></td>
-      <td>${res.hours}</td>
-      <td><a href="tel:${res.contact}" class="btn btn-sm btn-outline-success"><i class="fas fa-phone"></i> Call</a></td>
-    </tr>`;
-    tableBody.insertAdjacentHTML("beforeend", row);
-  });
 
-  const map = L.map('map').setView([23.8103, 90.4125], 7);
+
+
+
+
+
+  // Populate table
+
+  const tableBody = document.querySelector("#resourceTable tbody");
+  let dataTable;
+
+  function populateTable(data) {
+    tableBody.innerHTML = "";
+    data.forEach(res => {
+      const row = `<tr>
+        <td>${res.name}</td>
+        <td><span class="badge badge-info"><i class="fas fa-tag"></i> ${res.category}</span></td>
+        <td>${res.location}</td>
+        <td><span class="purpose-highlight" data-toggle="tooltip" title="${res.description}">${res.purpose}</span></td>
+        <td>${res.hours}</td>
+        <td><a href="tel:${res.contact}" class="btn btn-sm btn-outline-success"><i class="fas fa-phone"></i> Call</a></td>
+      </tr>`;
+      tableBody.insertAdjacentHTML("beforeend", row);
+    });
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    if (dataTable) dataTable.destroy();
+    dataTable = $('#resourceTable').DataTable();
+  }
+
+  function renderMap(data) {
+    map.eachLayer((layer) => {
+      if (layer instanceof L.Marker) map.removeLayer(layer);
+    });
+    data.forEach(m => {
+      L.marker([m.lat, m.lng]).addTo(map).bindPopup(`
+        <strong>${m.name}</strong><br/>
+        <span class="badge badge-info">${m.category}</span><br/>
+        📍 ${m.location}<br/>
+        <b>Purpose:</b> ${m.purpose}
+      `);
+    });
+  }
+
+  const map = L.map('map').setView([23.8103, 90.4125], 11);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
-  markersData.forEach(m => {
-    L.marker([m.lat, m.lng]).addTo(map).bindPopup(`
-      <strong>${m.name}</strong><br/>
-      <span class="badge badge-info">${m.category}</span><br/>
-      📍 ${m.location}<br/>
-      <b>Purpose:</b> ${m.purpose}
-    `);
+
+  document.querySelector(".btn.btn-primary").addEventListener("click", () => {
+    const category = document.getElementById("category").value;
+    const area = document.getElementById("area").value;
+    const search = document.getElementById("search").value.toLowerCase();
+
+    const filtered = markersData.filter(item => {
+      const matchesCategory = !category || item.category === category;
+      const matchesArea = !area || item.location === area;
+      const matchesSearch = !search ||
+        item.name.toLowerCase().includes(search) ||
+        item.purpose.toLowerCase().includes(search) ||
+        item.description.toLowerCase().includes(search);
+
+      return matchesCategory && matchesArea && matchesSearch;
+    });
+
+    populateTable(filtered);
+    renderMap(filtered);
   });
 
-  $('[data-toggle="tooltip"]').tooltip();
+  document.querySelector(".btn-outline-secondary").addEventListener("click", () => {
+    document.getElementById("category").value = "";
+    document.getElementById("area").value = "";
+    document.getElementById("search").value = "";
+    populateTable(markersData);
+    renderMap(markersData);
+  });
 
+  // Initial load
+  populateTable(markersData);
+  renderMap(markersData);
+
+  // Counters
   document.querySelectorAll(".count").forEach(counter => {
-    let end = +counter.dataset.count;
-    let step = Math.ceil(end / 50);
+    const end = +counter.dataset.count;
     let count = 0;
-    let update = () => {
+    const step = Math.ceil(end / 30);
+    const update = () => {
       count += step;
       counter.innerText = count >= end ? end : count;
       if (count < end) requestAnimationFrame(update);
     };
     update();
   });
-
-  $('#resourceTable').DataTable();
 </script>
+
+
 </body>
 </html>

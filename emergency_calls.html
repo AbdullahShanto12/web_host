@@ -390,461 +390,423 @@
 
 
 
-
-
-
-
-
-
-
-
   </aside>
 
-  <!-- Main Content -->
-  <div class="content-wrapper p-3">
-    <div class="container-fluid">
-      <div class="emergency-header text-center">
-        <h2 class="emergency-title">
-          🚨 Emergency & Trusted Calls
-        </h2>
-        <p class="emergency-subtext">
-          Reach help instantly — whether it's authorities or someone you trust.
-        </p>
-      </div>
 
-      <!-- Emergency Services -->
-      <div class="section-title">Emergency Services</div>
-      <!-- Hardcoded emergency numbers for demonstration -->
-      <div class="call-button bg-danger text-white" onclick="window.location.href='tel:999'">
-          <div>
-              <i class="fas fa-shield-alt call-icon"></i> 
-              Police
-              <br>
-              <small class="text-light">
-                  <i class="fas fa-phone-alt"></i> 999
-                  <br><i class="fas fa-info-circle"></i> Local Police Emergency
-              </small>
+
+
+
+
+<!-- Main Content -->
+<div class="content-wrapper p-3">
+  <div class="container-fluid">
+    <div class="emergency-header text-center">
+      <h2 class="emergency-title">
+        🚨 Emergency & Trusted Calls
+      </h2>
+      <p class="emergency-subtext">
+        Reach help instantly — whether it's authorities or someone you trust.
+      </p>
+    </div>
+
+    <!-- Emergency Services -->
+    <div class="section-title">Emergency Services</div>
+    <!-- Hardcoded emergency numbers for demonstration -->
+    <div class="call-button bg-danger text-white" onclick="window.location.href='tel:999'">
+      <div>
+        <i class="fas fa-shield-alt call-icon"></i> 
+        Police
+        <br>
+        <small class="text-light">
+          <i class="fas fa-phone-alt"></i> 999
+          <br><i class="fas fa-info-circle"></i> Local Police Emergency
+        </small>
+      </div>
+      <i class="fas fa-phone"></i>
+    </div>
+    <div class="call-button bg-danger text-white" onclick="window.location.href='tel:998'">
+      <div>
+        <i class="fas fa-shield-alt call-icon"></i> 
+        Fire Service
+        <br>
+        <small class="text-light">
+          <i class="fas fa-phone-alt"></i> 998
+          <br><i class="fas fa-info-circle"></i> Fire and Rescue
+        </small>
+      </div>
+      <i class="fas fa-phone"></i>
+    </div>
+    <!-- Add more emergency numbers here as needed -->
+
+    <!-- Add Emergency Number Button -->
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addEmergencyNumberModal">
+      <i class="fas fa-plus"></i> Add Emergency Number
+    </button>
+
+    <!-- Add Emergency Number Modal -->
+    <div class="modal fade" id="addEmergencyNumberModal" tabindex="-1" role="dialog" aria-labelledby="addEmergencyNumberModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addEmergencyNumberModalLabel">Add Emergency Number</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <i class="fas fa-phone"></i>
-      </div>
-      <div class="call-button bg-danger text-white" onclick="window.location.href='tel:998'">
-          <div>
-              <i class="fas fa-shield-alt call-icon"></i> 
-              Fire Service
-              <br>
-              <small class="text-light">
-                  <i class="fas fa-phone-alt"></i> 998
-                  <br><i class="fas fa-info-circle"></i> Fire and Rescue
-              </small>
-          </div>
-          <i class="fas fa-phone"></i>
-      </div>
-      <!-- Add more emergency numbers here as needed -->
-
-      <!-- Add Emergency Number Button (hidden without PHP) -->
-      <!--
-      <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addEmergencyNumberModal">
-          <i class="fas fa-plus"></i> Add Emergency Number
-      </button>
-      -->
-
-      <!-- Add Emergency Number Modal (remains, but no functionality without backend) -->
-      <div class="modal fade" id="addEmergencyNumberModal" tabindex="-1" role="dialog" aria-labelledby="addEmergencyNumberModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="addEmergencyNumberModalLabel">Add Emergency Number</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                  <form>
-                      <div class="modal-body">
-                          <div class="form-group">
-                              <label for="emergency_title">Title (e.g., Police, Fire Service)</label>
-                              <input type="text" class="form-control" id="emergency_title" name="title" required>
-                          </div>
-                          <div class="form-group">
-                              <label for="emergency_phone">Phone Number</label>
-                              <input type="tel" class="form-control" id="emergency_phone" name="phone_number" required>
-                          </div>
-                          <div class="form-group">
-                              <label for="emergency_description">Description (Optional)</label>
-                              <textarea class="form-control" id="emergency_description" name="description" rows="2"></textarea>
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" disabled class="btn btn-primary">Add Emergency Number</button>
-                      </div>
-                  </form>
+          <form id="emergencyNumberForm">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="emergency_title">Title (e.g., Police, Fire Service)</label>
+                <input type="text" class="form-control" id="emergency_title" name="title" required>
               </div>
-          </div>
-      </div>
-
-      <!-- Trusted Contacts -->
-      <div class="section-title">Trusted Contacts</div>
-
-      <!-- Add Trusted Number Button (hidden as no user role) -->
-      <!--
-      <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addTrustedNumberModal">
-        <i class="fas fa-plus"></i> Add Trusted Number
-      </button>
-      -->
-
-      <!-- Placeholder Trusted Contacts -->
-      <div class="alert alert-info">
-        No trusted contacts added yet. Add your trusted contacts to get started.
-      </div>
-
-      <!-- Trusted contacts list (hardcoded example) -->
-      <!--
-      <div class="call-button" onclick="window.location.href='tel:+880123456789'">
-        <div>
-          <i class="fas fa-user-shield call-icon"></i> 
-          Mother
-          <small class="text-muted">(Primary contact)</small>
+              <div class="form-group">
+                <label for="emergency_phone">Phone Number</label>
+                <input type="tel" class="form-control" id="emergency_phone" name="phone_number" required>
+              </div>
+              <div class="form-group">
+                <label for="emergency_description">Description (Optional)</label>
+                <textarea class="form-control" id="emergency_description" name="description" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Add Emergency Number</button>
+            </div>
+          </form>
         </div>
-        <i class="fas fa-phone text-success"></i>
       </div>
-      -->
+    </div>
 
-      <!-- Add Trusted Number Modal -->
-      <div class="modal fade" id="addTrustedNumberModal" tabindex="-1" role="dialog" aria-labelledby="addTrustedNumberModalLabel" aria-hidden="true">
+    <!-- Trusted Contacts -->
+    <div class="section-title">Trusted Contacts</div>
+
+    <!-- Add Trusted Number Button -->
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addTrustedNumberModal">
+      <i class="fas fa-plus"></i> Add Trusted Number
+    </button>
+
+    <!-- Example Trusted Contacts List -->
+    <div class="call-button" onclick="window.location.href='tel:+880123456789'">
+      <div>
+        <i class="fas fa-user-shield call-icon"></i> 
+        Mother
+        <small class="text-muted">(Primary contact)</small>
+      </div>
+      <i class="fas fa-phone text-success"></i>
+    </div>
+    <div class="call-button" onclick="window.location.href='tel:+880198765432'">
+      <div>
+        <i class="fas fa-user-shield call-icon"></i> 
+        Brother
+      </div>
+      <i class="fas fa-phone text-success"></i>
+    </div>
+
+    <!-- Add Trusted Number Modal -->
+    <div class="modal fade" id="addTrustedNumberModal" tabindex="-1" role="dialog" aria-labelledby="addTrustedNumberModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addTrustedNumberModalLabel">Add Trusted Number</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="trustedNumberForm">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="trusted_title">Title (e.g., Mother, Father, Brother)</label>
+                <input type="text" class="form-control" id="trusted_title" name="title" required>
+              </div>
+              <div class="form-group">
+                <label for="trusted_phone_number">Phone Number</label>
+                <input type="tel" class="form-control" id="trusted_phone_number" name="phone_number" required>
+              </div>
+              <div class="form-group">
+                <label for="trusted_special_note">Special Note (Optional)</label>
+                <textarea class="form-control" id="trusted_special_note" name="special_note" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Add Contact</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Location Sharing -->
+    <div class="card p-4">
+      <div class="section-title">📍 Live Location Sharing</div>
+      <p>Share your real-time location with emergency contacts to help them find you quickly.</p>
+      <button class="btn btn-primary" onclick="shareLocation()">Share My Location</button>
+      
+      <!-- Sharing Options (Initially Hidden) -->
+      <div id="sharingOptions" class="mt-3" style="display: none;">
+        <div class="alert alert-info">
+          <p id="locationMessage" class="mb-2"></p>
+          <div class="share-buttons">
+            <a id="whatsappShare" class="share-button" style="background-color: #25D366;" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i> Share on WhatsApp
+            </a>
+            <a id="messengerShare" class="share-button" style="background-color: #0084FF;" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-facebook-messenger"></i> Share on Messenger
+            </a>
+            <a id="smsShare" class="share-button" style="background-color: #6c757d;" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-sms"></i> Share via SMS
+            </a>
+            <button class="share-button" style="background-color: #17a2b8;" onclick="copyLocationLink()">
+              <i class="fas fa-copy"></i> Copy Link
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Emergency Message Templates -->
+    <div class="card p-4">
+      <div class="section-title">✉️ Emergency Message Templates</div>
+      <p>Quickly send pre-written messages during emergencies.</p>
+      
+      <!-- Message Type Selection -->
+      <div class="mb-3">
+        <button type="button" class="btn btn-danger mb-2" onclick="prepareEmergencyMessage('help')">
+          <i class="fas fa-exclamation-triangle"></i> Send: I need help
+        </button>
+        <button type="button" class="btn btn-success" onclick="prepareEmergencyMessage('safe')">
+          <i class="fas fa-check-circle"></i> Send: I am safe
+        </button>
+      </div>
+
+      <!-- Sending Options Modal -->
+      <div class="modal fade" id="sendingOptionsModal" tabindex="-1" role="dialog" aria-labelledby="sendingOptionsModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="addTrustedNumberModalLabel">Add Trusted Number</h5>
+              <h5 class="modal-title" id="sendingOptionsModalLabel">Choose Sending Method</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form>
+            <div class="modal-body">
+              <form id="emergencyMessageForm">
+                <input type="hidden" name="latitude" id="messageLatitude" />
+                <input type="hidden" name="longitude" id="messageLongitude" />
+                <input type="hidden" name="message_type" id="messageType" />
+                <input type="hidden" name="send_emergency_message" value="1" />
+                
+                <div class="form-group">
+                  <label>Select sending method:</label>
+                  <div class="btn-group-vertical w-100">
+                    <button type="button" onclick="sendViaWhatsApp()" class="btn btn-success mb-2">
+                      <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                    </button>
+                    <button type="button" onclick="sendViaSMS()" class="btn btn-primary">
+                      <i class="fas fa-sms"></i> Send via SMS
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panic Button -->
+    <div class="card p-4 text-center">
+      <div class="section-title">🚨 Panic Button</div>
+      <button class="btn-panic" onclick="activatePanicButton()">
+        <i class="fas fa-exclamation-triangle"></i> Panic Button
+      </button>
+    </div>
+
+    <!-- Medical ID Display -->
+    <div class="card p-4">
+      <div class="section-title">🩺 Medical ID</div>
+      
+      <!-- Example Medical Info -->
+      <p><strong>Name:</strong> Abdullah Shanto</p>
+      <p><strong>Blood Type:</strong> O+</p>
+      <p><strong>Allergies:</strong> Penicillin</p>
+      <p><strong>Medications:</strong> None</p>
+      <p><strong>Medical Conditions:</strong> Asthma</p>
+
+      <button class="btn btn-secondary mb-2" data-toggle="modal" data-target="#editMedicalInfoModal">
+        <i class="fas fa-edit"></i> Edit Medical Info
+      </button>
+
+      <!-- Edit Medical Info Modal -->
+      <div class="modal fade" id="editMedicalInfoModal" tabindex="-1" role="dialog" aria-labelledby="editMedicalInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editMedicalInfoModalLabel">Edit Medical Information</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="medicalInfoForm">
               <div class="modal-body">
                 <div class="form-group">
-                  <label for="title">Title (e.g., Mother, Father, Brother)</label>
-                  <input type="text" class="form-control" id="title" name="title" required>
+                  <label for="medical_name">Full Name</label>
+                  <input type="text" class="form-control" id="medical_name" name="name" value="Jane Doe" required>
                 </div>
                 <div class="form-group">
-                  <label for="phone_number">Phone Number</label>
-                  <input type="tel" class="form-control" id="phone_number" name="phone_number" required>
+                  <label for="medical_blood_type">Blood Type</label>
+                  <input type="text" class="form-control" id="medical_blood_type" name="blood_type" value="O+" required>
                 </div>
                 <div class="form-group">
-                  <label for="special_note">Special Note (Optional)</label>
-                  <textarea class="form-control" id="special_note" name="special_note" rows="2"></textarea>
+                  <label for="medical_allergies">Allergies</label>
+                  <textarea class="form-control" id="medical_allergies" name="allergies" rows="2">Penicillin</textarea>
+                </div>
+                <div class="form-group">
+                  <label for="medical_medications">Medications</label>
+                  <textarea class="form-control" id="medical_medications" name="medications" rows="2">None</textarea>
+                </div>
+                <div class="form-group">
+                  <label for="medical_conditions">Medical Conditions</label>
+                  <textarea class="form-control" id="medical_conditions" name="conditions" rows="2">Asthma</textarea>
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" disabled class="btn btn-primary">Add Contact</button>
+                <button type="submit" class="btn btn-primary">Save Info</button>
               </div>
             </form>
           </div>
         </div>
       </div>
 
-      <!-- Live Location Sharing -->
-      <div class="card p-4">
-        <div class="section-title">📍 Live Location Sharing</div>
-        <p>Share your real-time location with emergency contacts to help them find you quickly.</p>
-        <button class="btn btn-primary" onclick="shareLocation()">Share My Location</button>
-        
-        <!-- Sharing Options (Initially Hidden) -->
-        <div id="sharingOptions" class="mt-3" style="display: none;">
-          <div class="alert alert-info">
-            <p id="locationMessage" class="mb-2"></p>
-            <div class="share-buttons">
-              <a id="whatsappShare" class="share-button" style="background-color: #25D366;" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i> Share on WhatsApp
-              </a>
-              <a id="messengerShare" class="share-button" style="background-color: #0084FF;" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-facebook-messenger"></i> Share on Messenger
-              </a>
-              <a id="smsShare" class="share-button" style="background-color: #6c757d;" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-sms"></i> Share via SMS
-              </a>
-              <button class="share-button" style="background-color: #17a2b8;" onclick="copyLocationLink()">
-                <i class="fas fa-copy"></i> Copy Link
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
 
-      <!-- Emergency Message Templates -->
-      <div class="card p-4">
-        <div class="section-title">✉️ Emergency Message Templates</div>
-        <p>Quickly send pre-written messages during emergencies.</p>
-        
-        <!-- Message Type Selection -->
-        <div class="mb-3">
-          <button type="button" class="btn btn-danger mb-2" onclick="prepareEmergencyMessage('help')">
-            <i class="fas fa-exclamation-triangle"></i> Send: I need help
-          </button>
-          <button type="button" class="btn btn-success" onclick="prepareEmergencyMessage('safe')">
-            <i class="fas fa-check-circle"></i> Send: I am safe
-          </button>
-        </div>
-
-        <!-- Sending Options Modal -->
-        <div class="modal fade" id="sendingOptionsModal" tabindex="-1" role="dialog" aria-labelledby="sendingOptionsModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="sendingOptionsModalLabel">Choose Sending Method</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form id="emergencyMessageForm">
-                  <input type="hidden" name="latitude" id="messageLatitude" />
-                  <input type="hidden" name="longitude" id="messageLongitude" />
-                  <input type="hidden" name="message_type" id="messageType" />
-                  <input type="hidden" name="send_emergency_message" value="1" />
-                  
-                  <div class="form-group">
-                    <label>Select sending method:</label>
-                    <div class="btn-group-vertical w-100">
-                      <button type="button" onclick="sendViaWhatsApp()" class="btn btn-success mb-2">
-                        <i class="fab fa-whatsapp"></i> Send via WhatsApp
-                      </button>
-                      <button type="button" onclick="sendViaSMS()" class="btn btn-primary">
-                        <i class="fas fa-sms"></i> Send via SMS
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panic Button -->
-      <div class="card p-4 text-center">
-        <div class="section-title">🚨 Panic Button</div>
-        <button class="btn-panic" onclick="activatePanicButton()">
-          <i class="fas fa-exclamation-triangle"></i> Panic Button
+    <!-- Voice Command Activation -->
+    <div class="card p-4">
+      <div class="section-title">🎤 Emergency Voice Detection</div>
+      <p class="voice-note">Click the button and say any emergency word like "help", "emergency", or "danger" to call emergency services immediately</p>
+      
+      <div class="voice-command-container text-center">
+        <button id="voiceCommandBtn" class="btn btn-primary btn-lg">
+          <i class="fas fa-microphone"></i> Click to Speak
         </button>
+        <div id="voiceStatus" class="mt-2"></div>
       </div>
+    </div>
 
-      <!-- Medical ID Display -->
-      <div class="card p-4">
-        <div class="section-title">🩺 Medical ID</div>
-        
-        <p class="text-muted">No medical information available.</p>
-
-        <!-- Add/Edit Medical Info buttons and modals removed due to no backend -->
-
-      </div>
-
-      <!-- Voice Command Activation -->
-      <div class="card p-4">
-        <div class="section-title">🎤 Emergency Voice Detection</div>
-        <p class="voice-note">Click the button and say any emergency word like "help", "emergency", or "danger" to call emergency services immediately</p>
-        
-        <div class="voice-command-container text-center">
-          <button id="voiceCommandBtn" class="btn btn-primary btn-lg">
-            <i class="fas fa-microphone"></i> Click to Speak
-          </button>
-          <div id="voiceStatus" class="mt-2"></div>
+    <!-- Scheduled Calls Section -->
+    <div class="card p-4">
+      <div class="section-title">⏰ Emergency Call</div>
+      <p class="text-muted">A call to be made automatically at a specific time (up to 24 hours in advance)</p>
+      
+      <form id="scheduleCallForm">
+        <div class="form-group">
+          <label for="scheduled_phone_number">Phone Number to Call</label>
+          <input type="tel" class="form-control" id="scheduled_phone_number" name="phone_number" 
+                 required 
+                 placeholder="e.g., +8801600347734">
+          <small class="form-text text-muted">Enter the phone number you want to call</small>
         </div>
-      </div>
-
-      <!-- Scheduled Calls Section -->
-      <div class="card p-4">
-          <div class="section-title">⏰  Emergency Call</div>
-          <p class="text-muted">A call to be made automatically at a specific time (up to 24 hours in advance)</p>
-          
-          <form id="scheduleCallForm">
-              <div class="form-group">
-                  <label for="phone_number">Phone Number to Call</label>
-                  <input type="tel" class="form-control" id="phone_number" name="phone_number" 
-                         required 
-                         placeholder="e.g., +8801600347734">
-                  <small class="form-text text-muted">Enter the phone number you want to call</small>
-              </div>
-              <div class="form-group">
-                  <label for="scheduled_time"> Time</label>
-                  <input type="datetime-local" class="form-control" id="scheduled_time" name="scheduled_time" 
-                         min="" 
-                         max="" required>
-                  <small class="form-text text-muted">Select a time within the next 24 hours</small>
-              </div>
-              <button type="submit" class="btn btn-primary"> Call</button>
-          </form>
-
-          <!-- Scheduled calls display removed as no backend -->
-      </div>
-
-      <!-- Satellite Communication Fallback -->
-      <div class="card p-4">
-        <div class="section-title">🛰️ Satellite Communication (Fallback)</div>
-        <p>If there's no cellular signal, SafeWay will attempt to use available satellite APIs or fallback mechanisms for sending alerts. (Available in premium devices)</p>
-        <button class="btn btn-dark" disabled>Activate Satellite SOS (Coming Soon)</button>
-      </div>
-
-      <!-- QR Code for Emergency Page -->
-      <div class="card p-4 text-center">
-        <div class="section-title">🔗 Quick Access QR (Backup)</div>
-        <p>Scan this to access Emergency Panel from another device</p>
-        <div class="qr-box">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://yourdomain.com/emergency_calls.php&size=150x150" alt="QR Code" />
+        <div class="form-group">
+          <label for="scheduled_time">Time</label>
+          <input type="datetime-local" class="form-control" id="scheduled_time" name="scheduled_time" 
+                 min="" 
+                 max="" required>
+          <small class="form-text text-muted">Select a time within the next 24 hours</small>
         </div>
+        <button type="submit" class="btn btn-primary">Schedule Call</button>
+      </form>
+
+      <!-- Scheduled calls display removed as no backend -->
+    </div>
+
+    <!-- Satellite Communication Fallback -->
+    <div class="card p-4">
+      <div class="section-title">🛰️ Satellite Communication (Fallback)</div>
+      <p>If there's no cellular signal, SafeWay will attempt to use available satellite APIs or fallback mechanisms for sending alerts. (Available in premium devices)</p>
+      <button class="btn btn-dark" disabled>Activate Satellite SOS (Coming Soon)</button>
+    </div>
+
+    <!-- QR Code for Emergency Page -->
+    <div class="card p-4 text-center">
+      <div class="section-title">🔗 Quick Access QR (Backup)</div>
+      <p>Scan this to access Emergency Panel from another device</p>
+      <div class="qr-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://yourdomain.com/emergency_calls.php&size=150x150" alt="QR Code" />
       </div>
     </div>
   </div>
+</div>
 
-  <!-- JS dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<!-- JS dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-  <script>
-    // Setup min and max for schedule time input
-    const scheduleInput = document.getElementById('scheduled_time');
-    const now = new Date();
-    const minTime = now.toISOString().slice(0,16);
-    const maxDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-    const maxTime = maxDate.toISOString().slice(0,16);
-    scheduleInput.min = minTime;
-    scheduleInput.max = maxTime;
-
-    // Share location using Geolocation API
-    function shareLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-          const locationUrl = `https://www.google.com/maps?q=${lat},${lon}`;
-          const message = `I need help! My current location: ${locationUrl}`;
-          
-          // Update the location message
-          document.getElementById('locationMessage').textContent = message;
-          
-          // Set up sharing links
-          const whatsappLink = `https://wa.me/?text=${encodeURIComponent(message)}`;
-          const messengerLink = `https://www.facebook.com/dialog/send?app_id=YOUR_APP_ID&link=${encodeURIComponent(locationUrl)}&redirect_uri=${encodeURIComponent(window.location.href)}`;
-          const smsLink = `sms:?body=${encodeURIComponent(message)}`;
-          
-          document.getElementById('whatsappShare').href = whatsappLink;
-          document.getElementById('messengerShare').href = messengerLink;
-          document.getElementById('smsShare').href = smsLink;
-          
-          // Show sharing options
-          document.getElementById('sharingOptions').style.display = 'block';
-          
-          // Scroll to sharing options
-          document.getElementById('sharingOptions').scrollIntoView({ behavior: 'smooth' });
-        }, function(error) {
-          alert("Unable to access location. Please enable GPS and try again.");
-          console.error("Geolocation error:", error);
-        });
-      } else {
-        alert("Geolocation is not supported by this browser.");
-      }
-    }
-
-    function copyLocationLink() {
-      const message = document.getElementById('locationMessage').textContent;
-      navigator.clipboard.writeText(message).then(function() {
-        alert("Location link copied to clipboard!");
-      }).catch(function(err) {
-        console.error('Could not copy text: ', err);
-        alert("Failed to copy location link. Please try again.");
-      });
-    }
-
-    // Prepare emergency message modal (just fill hidden inputs and show modal)
-    function prepareEmergencyMessage(type) {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          document.getElementById('messageLatitude').value = position.coords.latitude;
-          document.getElementById('messageLongitude').value = position.coords.longitude;
-          document.getElementById('messageType').value = type;
-          
-          // Show the sending options modal
-          $('#sendingOptionsModal').modal('show');
-        }, function(error) {
-          alert("Unable to get location. Please enable GPS and try again.");
-          console.error("Geolocation error:", error);
-        });
-      } else {
-        alert("Geolocation is not supported by this browser.");
-      }
-    }
-
-   // Simulate sending message via SMS
-function sendViaSMS() {
-  const lat = document.getElementById('messageLatitude').value;
-  const lon = document.getElementById('messageLongitude').value;
-  const type = document.getElementById('messageType').value;
-  const locationUrl = `https://www.google.com/maps?q=${lat},${lon}`;
-  let text = '';
-  if (type === 'help') {
-    text = `I need urgent help! My location: ${locationUrl}`;
-  } else {
-    text = `I'm safe now. My location: ${locationUrl}`;
-  }
-  window.open(`sms:?body=${encodeURIComponent(text)}`, '_blank');
-}
-
-function activatePanicButton() {
-  alert("🚨 Panic alert activated! Your location and a help message will be sent to your emergency contacts (simulated).");
-}
-
-// Voice command (basic simulation)
-const voiceButton = document.getElementById('voiceCommandBtn');
-const voiceStatus = document.getElementById('voiceStatus');
-
-voiceButton.addEventListener('click', () => {
-  if (!('webkitSpeechRecognition' in window)) {
-    voiceStatus.textContent = "Speech recognition not supported in this browser.";
-    return;
-  }
-
-  const recognition = new webkitSpeechRecognition();
-  recognition.lang = "en-US";
-  recognition.continuous = false;
-  recognition.interimResults = false;
-
-  voiceStatus.textContent = "Listening...";
-
-  recognition.onresult = function(event) {
-    const spokenText = event.results[0][0].transcript.toLowerCase();
-    voiceStatus.textContent = `You said: "${spokenText}"`;
-
-    if (spokenText.includes("help") || spokenText.includes("emergency") || spokenText.includes("danger")) {
-      activatePanicButton();
-    } else {
-      voiceStatus.textContent = `You said: "${spokenText}" - no emergency keyword detected.`;
-    }
-  };
-
-  recognition.onerror = function(event) {
-    voiceStatus.textContent = "Error occurred during speech recognition.";
-    console.error(event);
-  };
-
-  recognition.start();
+<script>
+// Enable/disable Add Emergency Number submit button based on validation
+$('#emergencyNumberForm input, #emergencyNumberForm textarea').on('input', function() {
+  let form = $('#emergencyNumberForm')[0];
+  $('#emergencyNumberForm button[type="submit"]').prop('disabled', !form.checkValidity());
 });
 
+// Enable/disable Add Trusted Number submit button based on validation
+$('#trustedNumberForm input, #trustedNumberForm textarea').on('input', function() {
+  let form = $('#trustedNumberForm')[0];
+  $('#trustedNumberForm button[type="submit"]').prop('disabled', !form.checkValidity());
+});
 
+// Enable/disable Medical Info save button based on validation
+$('#medicalInfoForm input, #medicalInfoForm textarea').on('input', function() {
+  let form = $('#medicalInfoForm')[0];
+  $('#medicalInfoForm button[type="submit"]').prop('disabled', !form.checkValidity());
+});
 
+// Setup min and max for schedule time input
+const scheduleInput = document.getElementById('scheduled_time');
+function setScheduleTimeLimits() {
+  const now = new Date();
+  const minTime = now.toISOString().slice(0,16);
+  const maxDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+  const maxTime = maxDate.toISOString().slice(0,16);
+  scheduleInput.min = minTime;
+  scheduleInput.max = maxTime;
+}
+setScheduleTimeLimits();
 
+// Enable Schedule Call button only when form valid
+$('#scheduleCallForm input').on('input', function() {
+  let form = $('#scheduleCallForm')[0];
+  $('#scheduleCallForm button[type="submit"]').prop('disabled', !form.checkValidity());
+});
 
+// Initially disable Schedule Call submit until valid inputs
+$('#scheduleCallForm button[type="submit"]').prop('disabled', true);
 
+// Form submission stubs
+$('#emergencyNumberForm').submit(function(e){
+  e.preventDefault();
+  alert('Add Emergency Number feature requires backend implementation.');
+  $('#addEmergencyNumberModal').modal('hide');
+});
 
+$('#trustedNumberForm').submit(function(e){
+  e.preventDefault();
+  alert('Add Trusted Contact feature requires backend implementation.');
+  $('#addTrustedNumberModal').modal('hide');
+});
 
+$('#medicalInfoForm').submit(function(e){
+  e.preventDefault();
+  alert('Save Medical Info feature requires backend implementation.');
+  $('#editMedicalInfoModal').modal('hide');
+});
 
+$('#scheduleCallForm').submit(function(e){
+  e.preventDefault();
+  alert('Schedule Call feature requires backend implementation.');
+});
 
+</script>
 
-
-
-
-
-
-
-  </script>
 </body>
 </html>

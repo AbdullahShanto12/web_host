@@ -522,10 +522,35 @@ async function fetchSafetyData(location) {
       crowd_density: "Low",
       incidents: JSON.stringify(["Pickpocket"]),
       transport_scores: JSON.stringify({ Bus: 8, Rickshaw: 9, Car: 9 })
+    },
+    'Uttara': {
+      safety_score: 6.5,
+      police_stations: JSON.stringify(["Uttara PS"]),
+      weather_advisory: "Partly cloudy.",
+      crowd_density: "High",
+      incidents: JSON.stringify(["Bag snatching", "Assault"]),
+      transport_scores: JSON.stringify({ Bus: 5, Rickshaw: 6, Car: 7 })
+    },
+    'Jamuna': {
+      safety_score: 5.8,
+      police_stations: JSON.stringify(["Jamuna PS"]),
+      weather_advisory: "Clear skies.",
+      crowd_density: "Moderate",
+      incidents: JSON.stringify(["Robbery", "Theft"]),
+      transport_scores: JSON.stringify({ Bus: 6, Rickshaw: 6, Car: 7 })
+    },
+    'Mirpur': {
+      safety_score: 6.9,
+      police_stations: JSON.stringify(["Mirpur PS"]),
+      weather_advisory: "Sunny.",
+      crowd_density: "Moderate",
+      incidents: JSON.stringify(["Theft", "Assault"]),
+      transport_scores: JSON.stringify({ Bus: 7, Rickshaw: 7, Car: 8 })
     }
   };
   return dummySafetyDB[location] || null;
 }
+
 
 function formatTransport(transportData) {
   const obj = JSON.parse(transportData);

@@ -331,113 +331,94 @@ thead.thead-dark th {
 
 
 
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <h2>Map Exploration</h2>
+      <p class="text-muted">Explore safety data on the map. Click on markers for more details.</p>
+    </div>
+  </section>
 
-
-  <div class="content-wrapper">
-    <section class="content-header">
-      <div class="container-fluid">
-        <h2>Map Exploration</h2>
-        <p class="text-muted">Explore safety data on the map. Click on markers for more details.</p>
-      </div>
-    </section>
-
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Stats Cards -->
-        <div class="row text-white mb-4">
-          <div class="col-md-4">
-            <div class="stats-card bg-info p-3 rounded shadow text-center">
-              <h3 class="count" data-count="142">0</h3>
-              <small>Total Resources</small>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="stats-card bg-success p-3 rounded shadow text-center">
-              <h3 class="count" data-count="9">0</h3>
-              <small>Unique Area Type</small>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="stats-card bg-danger p-3 rounded shadow text-center">
-              <h3 class="count" data-count="37">0</h3>
-              <small>Distinct Location</small>
-            </div>
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Stats Cards -->
+      <div class="row text-white mb-4">
+        <div class="col-md-4">
+          <div class="stats-card bg-info p-3 rounded shadow text-center">
+            <h3 class="count" data-count="142">0</h3>
+            <small>Total Resources</small>
           </div>
         </div>
-
-        <!-- Search & Filter -->
-        <div id="search-container">
-          <input type="text" id="search-input" class="form-control d-inline-block w-75" placeholder="Search a place (e.g. Gulshan 2)">
-          <button id="search-button" class="btn btn-primary ml-2">Search</button>
+        <div class="col-md-4">
+          <div class="stats-card bg-success p-3 rounded shadow text-center">
+            <h3 class="count" data-count="9">0</h3>
+            <small>Unique Area Type</small>
+          </div>
         </div>
-
-        <div id="filter-container">
-          <label for="filter-select">Filter by Safety Level:</label>
-          <select id="filter-select" class="form-control w-50">
-            <option value="all">All</option>
-            <option value="High">High</option>
-            <option value="Moderate">Moderate</option>
-            <option value="Low">Low</option>
-          </select>
-        </div>
-
-        <!-- Dark Mode -->
-        <button id="dark-mode-toggle" class="btn btn-dark">Toggle Dark Mode</button>
-
-        <!-- Map -->
-        <div id="map"></div>
-
-        <!-- Safety Ratings Table -->
-        <div class="table-container mt-4">
-          <h5 class="mb-2">Detailed Safety Ratings Table</h5>
-          <table id="ratingsTable" class="display nowrap table table-bordered table-hover" style="width:100%">
-            <thead class="thead-dark">
-              <tr>
-                <th>Location</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th>Area Type</th>
-                <th>Reported Incidents</th>
-                <th>Safety Rating</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Gulshan 2</td>
-                <td>23.7806</td>
-                <td>90.4220</td>
-                <td>Residential</td>
-                <td>5</td>
-                <td>High</td>
-                <td>Generally safe with police patrols</td>
-              </tr>
-              <tr>
-                <td>Mirpur 10</td>
-                <td>23.8041</td>
-                <td>90.3666</td>
-                <td>Commercial</td>
-                <td>15</td>
-                <td>Moderate</td>
-                <td>Pickpocketing incidents reported</td>
-              </tr>
-              <tr>
-                <td>Farmgate</td>
-                <td>23.7584</td>
-                <td>90.3900</td>
-                <td>Market</td>
-                <td>20</td>
-                <td>Low</td>
-                <td>High traffic, low surveillance</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-md-4">
+          <div class="stats-card bg-danger p-3 rounded shadow text-center">
+            <h3 class="count" data-count="37">0</h3>
+            <small>Distinct Location</small>
+          </div>
         </div>
       </div>
-    </section>
-  </div>
 
+      <!-- Search & Filter -->
+      <div id="search-container" class="mb-3">
+        <input
+          type="text"
+          id="search-input"
+          class="form-control d-inline-block w-75"
+          placeholder="Search a place (e.g. Gulshan 2)"
+        />
+        <button id="search-button" class="btn btn-primary ml-2">Search</button>
+      </div>
 
+      <div id="filter-container" class="mb-3">
+        <label for="filter-select">Filter by Safety Level:</label>
+        <select id="filter-select" class="form-control w-50">
+          <option value="all">All</option>
+          <option value="High">High</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <!-- Dark Mode -->
+      <button id="dark-mode-toggle" class="btn btn-dark mb-3">Toggle Dark Mode</button>
+
+      <!-- Map -->
+      <div id="map" style="height: 500px;"></div>
+
+      <!-- Safety Ratings Table -->
+      <div class="table-container mt-4">
+        <h5 class="mb-2">Detailed Safety Ratings Table</h5>
+        <table
+          id="ratingsTable"
+          class="display nowrap table table-bordered table-hover"
+          style="width:100%"
+        >
+          <thead class="thead-dark">
+            <tr>
+              <th>Location</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
+              <th>Area Type</th>
+              <th>Reported Incidents</th>
+              <th>Safety Rating</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="ratingsBody">
+            <!-- Rows will be inserted dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Scripts -->
 
 <!-- jQuery and Bootstrap Bundle -->
 <script src="plugins/jquery/jquery.min.js"></script>
@@ -470,28 +451,6 @@ thead.thead-dark th {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 
 <script>
   const safetyData = [
@@ -527,7 +486,7 @@ thead.thead-dark th {
     },
     {
       name: "Motijheel",
-      coords: [23.7333, 90.4170],
+      coords: [23.7333, 90.417],
       level: "Low",
       patrolling: "Rare",
       streetLighting: "Poor",
@@ -539,10 +498,74 @@ thead.thead-dark th {
       area_type: "Business",
       safety_rating: "4.1",
       notes: "Unsafe at night"
+    },
+    // Added locations:
+    {
+      name: "Dhanmondi",
+      coords: [23.7465, 90.376],
+      level: "Moderate",
+      patrolling: "Moderate",
+      streetLighting: "Good",
+      incidentReports: "Medium",
+      womenHelpline: "Available",
+      transportAccess: "Good",
+      description: "Popular residential and recreational area.",
+      color: "yellow",
+      area_type: "Residential",
+      safety_rating: "6.8",
+      notes: "Active community patrols"
+    },
+    {
+      name: "Uttara",
+      coords: [23.875, 90.3975],
+      level: "Moderate",
+      patrolling: "Moderate",
+      streetLighting: "Average",
+      incidentReports: "Medium",
+      womenHelpline: "Available",
+      transportAccess: "Good",
+      description: "Expanding suburb with busy markets.",
+      color: "yellow",
+      area_type: "Residential",
+      safety_rating: "6.3",
+      notes: "Market areas can be crowded"
+    },
+    {
+      name: "Jamuna",
+      coords: [23.8243, 90.3651],
+      level: "Low",
+      patrolling: "Rare",
+      streetLighting: "Poor",
+      incidentReports: "High",
+      womenHelpline: "Unavailable",
+      transportAccess: "Limited",
+      description: "Less developed with fewer patrols.",
+      color: "red",
+      area_type: "Industrial",
+      safety_rating: "4.5",
+      notes: "Avoid late nights"
     }
   ];
 
   $(document).ready(function () {
+    // Populate table body
+    const tbody = $("#ratingsBody");
+    safetyData.forEach(location => {
+      const row = `
+        <tr>
+          <td>${location.name}</td>
+          <td>${location.coords[0]}</td>
+          <td>${location.coords[1]}</td>
+          <td>${location.area_type}</td>
+          <td>${location.incidentReports}</td>
+          <td>${location.level}</td>
+          <td>${location.notes}</td>
+        </tr>
+      `;
+      tbody.append(row);
+    });
+
+    // Initialize DataTable with buttons
     $("#ratingsTable").DataTable({
       responsive: true,
       dom: "Bfrtip",
@@ -550,6 +573,7 @@ thead.thead-dark th {
       pageLength: 10
     });
 
+    // Animate counts on stats cards
     $(".count").each(function () {
       const $this = $(this);
       const countTo = $this.attr("data-count");
@@ -569,21 +593,31 @@ thead.thead-dark th {
     });
   });
 
+  // Initialize map
   const map = L.map("map").setView([23.8103, 90.4125], 12);
+
   const light = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
 
-  const dark = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    attribution: "&copy; OpenStreetMap contributors & CartoDB"
-  });
+  const dark = L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+    {
+      attribution: "&copy; OpenStreetMap contributors & CartoDB"
+    }
+  );
 
-  let heat = L.heatLayer(safetyData.map(p => [...p.coords, 0.5]), { radius: 25 });
+  // Heatmap layer based on safety data intensity (adjust radius & intensity)
+  let heat = L.heatLayer(
+    safetyData.map((p) => [...p.coords, 0.5]),
+    { radius: 25 }
+  );
 
+  // Store markers for search and filtering
   const markers = [];
 
-  safetyData.forEach(location => {
+  safetyData.forEach((location) => {
     const popup = `
       <strong>${location.name}</strong><br/>
       <b>Safety Level:</b> ${location.level}<br/>
@@ -598,79 +632,88 @@ thead.thead-dark th {
       color: location.color,
       fillColor: location.color,
       fillOpacity: 0.8
-    }).addTo(map).bindPopup(popup);
+    })
+      .addTo(map)
+      .bindPopup(popup);
 
     markers.push({ name: location.name.toLowerCase(), marker, location });
-
-    // Add to table
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${location.name}</td>
-      <td>${location.coords[0]}</td>
-      <td>${location.coords[1]}</td>
-      <td>${location.area_type}</td>
-      <td>${location.incidentReports}</td>
-      <td>${location.safety_rating}</td>
-      <td>${location.notes}</td>
-    `;
-    document.getElementById("ratingsBody").appendChild(row);
   });
 
-  document.getElementById("search-button").addEventListener("click", () => {
-    const query = document.getElementById("search-input").value.toLowerCase().trim();
-    const result = markers.find(m => m.name.includes(query));
-    if (result) {
-      map.setView(result.marker.getLatLng(), 15);
-      result.marker.openPopup();
-    } else {
-      alert("Place not found.");
-    }
-  });
-
-  document.getElementById("filter-select").addEventListener("change", (e) => {
-    const level = e.target.value;
-    markers.forEach(({ marker, location }) => {
-      if (level === "all" || location.level === level) {
-        marker.addTo(map);
+  // Search functionality
+  document
+    .getElementById("search-button")
+    .addEventListener("click", () => {
+      const query = document
+        .getElementById("search-input")
+        .value.toLowerCase()
+        .trim();
+      const result = markers.find((m) => m.name.includes(query));
+      if (result) {
+        map.setView(result.marker.getLatLng(), 15);
+        result.marker.openPopup();
       } else {
-        map.removeLayer(marker);
+        alert("Place not found.");
       }
     });
-  });
 
-  document.getElementById("dark-mode-toggle").addEventListener("click", () => {
-    if (map.hasLayer(light)) {
-      map.removeLayer(light);
-      dark.addTo(map);
-    } else {
-      map.removeLayer(dark);
-      light.addTo(map);
-    }
-  });
+  // Filter safety level functionality
+  document
+    .getElementById("filter-select")
+    .addEventListener("change", (e) => {
+      const level = e.target.value;
+      markers.forEach(({ marker, location }) => {
+        if (level === "all" || location.level === level) {
+          marker.addTo(map);
+        } else {
+          map.removeLayer(marker);
+        }
+      });
+    });
 
-  // Controls
+  // Dark mode toggle for map tiles
+  document
+    .getElementById("dark-mode-toggle")
+    .addEventListener("click", () => {
+      if (map.hasLayer(light)) {
+        map.removeLayer(light);
+        dark.addTo(map);
+      } else {
+        map.removeLayer(dark);
+        light.addTo(map);
+      }
+    });
+
+  // Add clock control (bottom-left)
   L.control({ position: "bottomleft" }).onAdd = function () {
-    const div = L.DomUtil.create("div", "clock");
-    setInterval(() => div.innerHTML = new Date().toLocaleTimeString(), 1000);
+    const div = L.DomUtil.create("div", "clock p-2 bg-light rounded");
+    setInterval(() => (div.innerHTML = new Date().toLocaleTimeString()), 1000);
     return div;
   }.addTo(map);
 
+  // Add toggle heatmap button (top-right)
   L.control({ position: "topright" }).onAdd = function () {
-    const div = L.DomUtil.create("div", "leaflet-bar");
+    const div = L.DomUtil.create("div", "leaflet-bar p-1");
     const btn = document.createElement("button");
     btn.textContent = "Toggle Heatmap";
-    btn.onclick = () => map.hasLayer(heat) ? map.removeLayer(heat) : heat.addTo(map);
+    btn.classList.add("btn", "btn-sm", "btn-outline-primary");
+    btn.style.width = "100%";
+    btn.onclick = () => (map.hasLayer(heat) ? map.removeLayer(heat) : heat.addTo(map));
     div.appendChild(btn);
     return div;
   }.addTo(map);
 
+  // Add legend (bottom-right)
   L.control({ position: "bottomright" }).onAdd = function () {
-    const div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i style="background:green"></i> High<br>';
-    div.innerHTML += '<i style="background:yellow"></i> Moderate<br>';
-    div.innerHTML += '<i style="background:red"></i> Low<br>';
+    const div = L.DomUtil.create("div", "legend bg-white p-2 rounded shadow");
+    div.innerHTML +=
+      '<i style="background:green; width: 18px; height: 18px; display: inline-block; margin-right: 8px;"></i> High<br>';
+    div.innerHTML +=
+      '<i style="background:yellow; width: 18px; height: 18px; display: inline-block; margin-right: 8px;"></i> Moderate<br>';
+    div.innerHTML +=
+      '<i style="background:red; width: 18px; height: 18px; display: inline-block; margin-right: 8px;"></i> Low<br>';
     return div;
   }.addTo(map);
 </script>
+
 </body>
 </html>

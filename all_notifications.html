@@ -291,212 +291,283 @@ tbody td a:hover {
       </div>
     </aside>
 
-    <!-- Main Content -->
-    <div class="content-wrapper">
-      <h1>All Notifications</h1>
-      <p>Browse all safety notifications submitted by all users.</p>
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6 col-md-12">
-            <div class="chart-container">
-              <canvas id="categoryChart" aria-label="Notification Categories Chart" role="img"></canvas>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12">
-            <div class="chart-container">
-              <canvas id="urgencyChart" aria-label="Urgency Levels Chart" role="img"></canvas>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12">
-            <div class="chart-container">
-              <canvas id="timeChart" aria-label="Notifications Over Time Chart" role="img"></canvas>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12">
-            <div class="chart-container">
-              <canvas id="locationChart" aria-label="Top Locations Reported Chart" role="img"></canvas>
-            </div>
-          </div>
+
+
+
+
+
+
+<!-- Main Content -->
+<div class="content-wrapper">
+  <h1>All Notifications</h1>
+  <p>Browse all safety notifications submitted by all users.</p>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="chart-container">
+          <canvas id="categoryChart" aria-label="Notification Categories Chart" role="img"></canvas>
         </div>
       </div>
-
-      <div class="table-responsive mt-4" tabindex="0" aria-label="Notifications Table">
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Message</th>
-              <th>Location</th>
-              <th>Category</th>
-              <th>Urgency</th>
-              <th>Link</th>
-              <th>Sent At</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Static Sample Data (Replace or Expand) -->
-            <tr>
-              <td>Robbery Alert</td>
-              <td>Robbery near Mirpur 1 at 9PM</td>
-              <td>Mirpur 1</td>
-              <td>Theft</td>
-              <td><span class="badge badge-danger">Critical</span></td>
-              <td><a href="#" target="_blank">Link</a></td>
-              <td>July 18, 2025 09:15 PM</td>
-            </tr>
-            <tr>
-              <td>Street Light Broken</td>
-              <td>No lighting in Badda road for 3 days</td>
-              <td>Badda</td>
-              <td>Infrastructure</td>
-              <td><span class="badge badge-info">Medium</span></td>
-              <td>-</td>
-              <td>July 17, 2025 07:00 PM</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-lg-6 col-md-12">
+        <div class="chart-container">
+          <canvas id="urgencyChart" aria-label="Urgency Levels Chart" role="img"></canvas>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="chart-container">
+          <canvas id="timeChart" aria-label="Notifications Over Time Chart" role="img"></canvas>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="chart-container">
+          <canvas id="locationChart" aria-label="Top Locations Reported Chart" role="img"></canvas>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- JS Scripts -->
-  <script src="plugins/jquery/jquery.min.js"></script>
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="dist/js/adminlte.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <div class="table-responsive mt-4" tabindex="0" aria-label="Notifications Table">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Message</th>
+          <th>Location</th>
+          <th>Category</th>
+          <th>Urgency</th>
+          <th>Link</th>
+          <th>Sent At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Static Sample Data (Replace or Expand) -->
+        <tr>
+          <td>Robbery Alert</td>
+          <td>Robbery near Mirpur 1 at 9PM</td>
+          <td>Mirpur 1</td>
+          <td>Theft</td>
+          <td><span class="badge badge-danger">Critical</span></td>
+          <td><a href="#" target="_blank">Link</a></td>
+          <td>July 18, 2025 09:15 PM</td>
+        </tr>
+        <tr>
+          <td>Street Light Broken</td>
+          <td>No lighting in Badda road for 3 days</td>
+          <td>Badda</td>
+          <td>Infrastructure</td>
+          <td><span class="badge badge-info">Medium</span></td>
+          <td>-</td>
+          <td>July 17, 2025 07:00 PM</td>
+        </tr>
+        <tr>
+          <td>Traffic Congestion</td>
+          <td>Severe traffic jam in Dhanmondi</td>
+          <td>Dhanmondi</td>
+          <td>Traffic</td>
+          <td><span class="badge badge-warning">High</span></td>
+          <td>-</td>
+          <td>July 18, 2025 05:00 PM</td>
+        </tr>
+        <tr>
+          <td>Suspicious Activity</td>
+          <td>Reported suspicious person near Jamuna</td>
+          <td>Jamuna</td>
+          <td>Suspicious</td>
+          <td><span class="badge badge-danger">Critical</span></td>
+          <td><a href="#" target="_blank">Link</a></td>
+          <td>July 16, 2025 11:00 PM</td>
+        </tr>
+        <tr>
+          <td>Lighting Issue</td>
+          <td>Street lights not working in Gulshan</td>
+          <td>Gulshan</td>
+          <td>Infrastructure</td>
+          <td><span class="badge badge-info">Medium</span></td>
+          <td>-</td>
+          <td>July 17, 2025 09:30 PM</td>
+        </tr>
+        <tr>
+          <td>Protest</td>
+          <td>Peaceful protest in Uttara area</td>
+          <td>Uttara</td>
+          <td>Event</td>
+          <td><span class="badge badge-warning">High</span></td>
+          <td>-</td>
+          <td>July 18, 2025 03:00 PM</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-  <script>
-    const categoryData = { Theft: 5, Harassment: 2, Infrastructure: 3, Other: 1 };
-    const urgencyData = { Critical: 4, High: 3, Medium: 2, Low: 2 };
-    const timeData = { "July 15": 2, "July 16": 3, "July 17": 4, "July 18": 2 };
-    const locationData = { Mirpur: 3, Dhanmondi: 2, Badda: 2, Gulshan: 1 };
+<!-- JS Scripts -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    const colors = ['#6c5ce7', '#00cec9', '#fdcb6e', '#d63031', '#636e72'];
+<script>
+  const categoryData = {
+    Theft: 5,
+    Harassment: 2,
+    Infrastructure: 4,
+    Traffic: 1,
+    Suspicious: 1,
+    Event: 1,
+    Other: 1
+  };
 
-    new Chart(document.getElementById('categoryChart'), {
-      type: 'bar',
-      data: {
-        labels: Object.keys(categoryData),
-        datasets: [{
-          label: 'Category Count',
-          data: Object.values(categoryData),
-          backgroundColor: colors,
-          borderRadius: 6,
-          borderSkipped: false
-        }]
+  const urgencyData = {
+    Critical: 5,
+    High: 3,
+    Medium: 3,
+    Low: 2
+  };
+
+  const timeData = {
+    "July 15": 2,
+    "July 16": 4,
+    "July 17": 5,
+    "July 18": 4
+  };
+
+  const locationData = {
+    Mirpur: 4,
+    Dhanmondi: 2,
+    Badda: 2,
+    Gulshan: 2,
+    Uttara: 1,
+    Jamuna: 1
+  };
+
+  const colors = ['#6c5ce7', '#00cec9', '#fdcb6e', '#d63031', '#636e72', '#0984e3', '#e17055'];
+
+  new Chart(document.getElementById('categoryChart'), {
+    type: 'bar',
+    data: {
+      labels: Object.keys(categoryData),
+      datasets: [{
+        label: 'Category Count',
+        data: Object.values(categoryData),
+        backgroundColor: colors,
+        borderRadius: 6,
+        borderSkipped: false
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Notification Categories', color: '#004085', font: { size: 18, weight: '700' } },
+        legend: { display: false }
       },
-      options: {
-        responsive: true,
-        plugins: {
-          title: { display: true, text: 'Notification Categories', color: '#004085', font: { size: 18, weight: '700' } },
-          legend: { display: false }
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#223344', font: { weight: '600' } },
+          grid: { color: '#e3e9f3' }
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { color: '#223344', font: { weight: '600' } },
-            grid: { color: '#e3e9f3' }
-          },
-          x: {
-            ticks: { color: '#223344', font: { weight: '600' } },
-            grid: { display: false }
+        x: {
+          ticks: { color: '#223344', font: { weight: '600' } },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('urgencyChart'), {
+    type: 'doughnut',
+    data: {
+      labels: Object.keys(urgencyData),
+      datasets: [{
+        label: 'Urgency Levels',
+        data: Object.values(urgencyData),
+        backgroundColor: colors
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Urgency Breakdown', color: '#004085', font: { size: 18, weight: '700' } },
+        legend: {
+          labels: {
+            color: '#223344',
+            font: { weight: '600' }
           }
         }
       }
-    });
+    }
+  });
 
-    new Chart(document.getElementById('urgencyChart'), {
-      type: 'doughnut',
-      data: {
-        labels: Object.keys(urgencyData),
-        datasets: [{
-          label: 'Urgency Levels',
-          data: Object.values(urgencyData),
-          backgroundColor: colors
-        }]
+  new Chart(document.getElementById('timeChart'), {
+    type: 'line',
+    data: {
+      labels: Object.keys(timeData),
+      datasets: [{
+        label: 'Notifications Over Time',
+        data: Object.values(timeData),
+        borderColor: '#004085',
+        backgroundColor: 'rgba(0, 64, 133, 0.3)',
+        fill: true,
+        tension: 0.3,
+        borderWidth: 3,
+        pointRadius: 5,
+        pointBackgroundColor: '#004085'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Notifications Over Time', color: '#004085', font: { size: 18, weight: '700' } },
+        legend: { display: false }
       },
-      options: {
-        responsive: true,
-        plugins: {
-          title: { display: true, text: 'Urgency Breakdown', color: '#004085', font: { size: 18, weight: '700' } },
-          legend: {
-            labels: {
-              color: '#223344',
-              font: { weight: '600' }
-            }
-          }
-        }
-      }
-    });
-
-    new Chart(document.getElementById('timeChart'), {
-      type: 'line',
-      data: {
-        labels: Object.keys(timeData),
-        datasets: [{
-          label: 'Notifications Over Time',
-          data: Object.values(timeData),
-          borderColor: '#004085',
-          backgroundColor: 'rgba(0, 64, 133, 0.3)',
-          fill: true,
-          tension: 0.3,
-          borderWidth: 3,
-          pointRadius: 5,
-          pointBackgroundColor: '#004085'
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          title: { display: true, text: 'Notifications Over Time', color: '#004085', font: { size: 18, weight: '700' } },
-          legend: { display: false }
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#223344', font: { weight: '600' } },
+          grid: { color: '#e3e9f3' }
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { color: '#223344', font: { weight: '600' } },
-            grid: { color: '#e3e9f3' }
-          },
-          x: {
-            ticks: { color: '#223344', font: { weight: '600' } },
-            grid: { display: false }
-          }
+        x: {
+          ticks: { color: '#223344', font: { weight: '600' } },
+          grid: { display: false }
         }
       }
-    });
+    }
+  });
 
-    new Chart(document.getElementById('locationChart'), {
-      type: 'bar',
-      data: {
-        labels: Object.keys(locationData),
-        datasets: [{
-          label: 'Location Count',
-          data: Object.values(locationData),
-          backgroundColor: colors,
-          borderRadius: 6,
-          borderSkipped: false
-        }]
+  new Chart(document.getElementById('locationChart'), {
+    type: 'bar',
+    data: {
+      labels: Object.keys(locationData),
+      datasets: [{
+        label: 'Location Count',
+        data: Object.values(locationData),
+        backgroundColor: colors,
+        borderRadius: 6,
+        borderSkipped: false
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Top Locations Reported', color: '#004085', font: { size: 18, weight: '700' } },
+        legend: { display: false }
       },
-      options: {
-        responsive: true,
-        plugins: {
-          title: { display: true, text: 'Top Locations Reported', color: '#004085', font: { size: 18, weight: '700' } },
-          legend: { display: false }
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#223344', font: { weight: '600' } },
+          grid: { color: '#e3e9f3' }
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { color: '#223344', font: { weight: '600' } },
-            grid: { color: '#e3e9f3' }
-          },
-          x: {
-            ticks: { color: '#223344', font: { weight: '600' } },
-            grid: { display: false }
-          }
+        x: {
+          ticks: { color: '#223344', font: { weight: '600' } },
+          grid: { display: false }
         }
       }
-    });
-  </script>
+    }
+  });
+</script>
+
 </body>
 </html>

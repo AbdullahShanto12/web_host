@@ -335,8 +335,14 @@
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="dist/js/adminlte.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script>
-    const dummyData = {
+
+
+
+
+
+<script>
+  const locationData = {
+    dhanmondi: {
       lat: 23.7465,
       lon: 90.3760,
       safety_score: 82,
@@ -345,92 +351,138 @@
       crowd_density: "Moderate",
       incidents: ["Pickpocketing reported last week", "Street harassment in nearby alley"],
       transport_scores: { Bus: 70, Rickshaw: 85, Bike: 60 }
-    };
+    },
+    uttara: {
+      lat: 23.8748,
+      lon: 90.3984,
+      safety_score: 74,
+      police_stations: ["Uttara West Police Station", "Uttara East Police Station"],
+      weather_advisory: "Partly cloudy",
+      crowd_density: "High",
+      incidents: ["Traffic congestion", "Snatching incident two days ago"],
+      transport_scores: { Bus: 80, Rickshaw: 78, Bike: 65 }
+    },
+    jamuna: {
+      lat: 23.8151,
+      lon: 90.4252,
+      safety_score: 65,
+      police_stations: ["Gulshan Police Station"],
+      weather_advisory: "Hot and humid",
+      crowd_density: "Moderate",
+      incidents: ["Scam at ATM", "Pickpocketing inside mall"],
+      transport_scores: { Bus: 60, Rickshaw: 70, Bike: 50 }
+    },
+    gulshan: {
+      lat: 23.7925,
+      lon: 90.4078,
+      safety_score: 88,
+      police_stations: ["Gulshan Police Station", "Banani Police Outpost"],
+      weather_advisory: "Cool and pleasant",
+      crowd_density: "Low",
+      incidents: ["VIP movement delays", "Minor road accident yesterday"],
+      transport_scores: { Bus: 65, Rickshaw: 90, Bike: 75 }
+    },
+    mirpur: {
+      lat: 23.8041,
+      lon: 90.3667,
+      safety_score: 58,
+      police_stations: ["Mirpur Model Police Station"],
+      weather_advisory: "Rain expected in evening",
+      crowd_density: "High",
+      incidents: ["Overcrowded buses", "Street altercation reported"],
+      transport_scores: { Bus: 75, Rickshaw: 60, Bike: 55 }
+    }
+  };
 
-    const map = L.map('map').setView([23.8103, 90.4125], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);
-    let currentMarker;
+  const map = L.map('map').setView([23.8103, 90.4125], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);
+  let currentMarker;
 
-    function checkSafety() {
-      const location = document.getElementById('locationInput').value.trim();
-      if (!location) return alert("Please enter a location.");
-
-      const data = dummyData;
-
-      if (currentMarker) map.removeLayer(currentMarker);
-      currentMarker = L.marker([data.lat, data.lon]).addTo(map).bindPopup(location).openPopup();
-      map.setView([data.lat, data.lon], 15);
-
-      const safetyColor = data.safety_score > 70 ? 'green' : (data.safety_score > 40 ? 'orange' : 'red');
-      document.getElementById('result').innerHTML = `<div class="p-3" style="background-color:${safetyColor}; color:white; border-radius:10px;">Safety Score: ${data.safety_score}/100</div>`;
-
-      document.getElementById('policeList').innerHTML = data.police_stations.map(s => `<li>${s}</li>`).join('');
-      document.getElementById('weatherAdvisory').textContent = data.weather_advisory;
-      document.getElementById('crowdDensity').innerHTML = `Estimated: <strong>${data.crowd_density}</strong> crowd.`;
-      document.getElementById('incidentList').innerHTML = data.incidents.map(i => `<li>${i}</li>`).join('');
-      document.getElementById('transportScores').innerHTML = Object.entries(data.transport_scores).map(([k, v]) => `${k}: <span>${v}</span>`).join('<br>');
-
-      const hour = new Date().getHours();
-      const timeMessage = (hour >= 18 || hour <= 5) ? "It's dark outside. Be cautious." : "It's daytime. Stay alert.";
-      document.getElementById('timeAdvisory').textContent = timeMessage;
-
-      estimateLighting();
-      clothingTipFromWeather(data.weather_advisory);
-      estimateNoiseLevel(data.crowd_density);
-      moodForecast(data.safety_score);
-
-      document.getElementById("features").style.display = "block";
+  function checkSafety() {
+    const rawLocation = document.getElementById('locationInput').value.trim().toLowerCase();
+    if (!rawLocation || !locationData[rawLocation]) {
+      alert("Please enter a valid location: Dhanmondi, Uttara, Jamuna, Gulshan, or Mirpur.");
+      return;
     }
 
-    function estimateLighting() {
-      const hour = new Date().getHours();
-      const zoom = map.getZoom();
-      let lighting = "Unknown";
+    const data = locationData[rawLocation];
 
-      if (hour >= 6 && hour <= 17) lighting = "Bright daylight — visibility is good.";
-      else if (hour > 17 && hour < 20) lighting = "Dusk — street lights may vary.";
-      else lighting = zoom >= 15 ? "Urban night — streets likely lit." : "Dark zone — lighting might be poor.";
+    if (currentMarker) map.removeLayer(currentMarker);
+    currentMarker = L.marker([data.lat, data.lon]).addTo(map).bindPopup(rawLocation.toUpperCase()).openPopup();
+    map.setView([data.lat, data.lon], 15);
 
-      document.getElementById("lightingEstimator").textContent = lighting;
-    }
+    const safetyColor = data.safety_score > 70 ? 'green' : (data.safety_score > 40 ? 'orange' : 'red');
+    document.getElementById('result').innerHTML = `<div class="p-3" style="background-color:${safetyColor}; color:white; border-radius:10px;">Safety Score: ${data.safety_score}/100</div>`;
 
-    map.on('zoomend', estimateLighting);
+    document.getElementById('policeList').innerHTML = data.police_stations.map(s => `<li>${s}</li>`).join('');
+    document.getElementById('weatherAdvisory').textContent = data.weather_advisory;
+    document.getElementById('crowdDensity').innerHTML = `Estimated: <strong>${data.crowd_density}</strong> crowd.`;
+    document.getElementById('incidentList').innerHTML = data.incidents.map(i => `<li>${i}</li>`).join('');
+    document.getElementById('transportScores').innerHTML = Object.entries(data.transport_scores).map(([k, v]) => `${k}: <span>${v}</span>`).join('<br>');
 
-    function clothingTipFromWeather(text) {
-      text = text.toLowerCase();
-      let tip = "Dress comfortably.";
-      if (text.includes("rain")) tip = "Carry an umbrella or raincoat.";
-      else if (text.includes("hot") || text.includes("sunny")) tip = "Wear light clothes.";
-      else if (text.includes("cold")) tip = "Dress warmly.";
-      document.getElementById("clothingTip").textContent = tip;
-    }
+    const hour = new Date().getHours();
+    const timeMessage = (hour >= 18 || hour <= 5) ? "It's dark outside. Be cautious." : "It's daytime. Stay alert.";
+    document.getElementById('timeAdvisory').textContent = timeMessage;
 
-    function estimateNoiseLevel(crowd) {
-      let noise = "Quiet";
-      const hour = new Date().getHours();
-      const isPeak = (hour >= 7 && hour <= 9) || (hour >= 17 && hour <= 20);
-      if (crowd.toLowerCase().includes("high")) noise = isPeak ? "Very loud" : "Loud";
-      else if (crowd.toLowerCase().includes("moderate")) noise = "Moderate";
-      document.getElementById("noiseLevel").textContent = noise;
-    }
+    estimateLighting();
+    clothingTipFromWeather(data.weather_advisory);
+    estimateNoiseLevel(data.crowd_density);
+    moodForecast(data.safety_score);
 
-    function moodForecast(score) {
-      let mood = "Neutral vibes 🌫️";
-      if (score > 80) mood = "Positive vibes 🌞";
-      else if (score > 50) mood = "Mixed vibes 🌤️";
-      else mood = "Caution vibes 🌧️";
-      document.getElementById("moodForecast").textContent = mood;
-    }
+    document.getElementById("features").style.display = "block";
+  }
 
-    function updateClock() {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      document.getElementById('liveClock').textContent = `🕒 ${timeString}`;
-    }
+  // The rest of your functions remain unchanged
+  function estimateLighting() {
+    const hour = new Date().getHours();
+    const zoom = map.getZoom();
+    let lighting = "Unknown";
 
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
+    if (hour >= 6 && hour <= 17) lighting = "Bright daylight — visibility is good.";
+    else if (hour > 17 && hour < 20) lighting = "Dusk — street lights may vary.";
+    else lighting = zoom >= 15 ? "Urban night — streets likely lit." : "Dark zone — lighting might be poor.";
+
+    document.getElementById("lightingEstimator").textContent = lighting;
+  }
+
+  map.on('zoomend', estimateLighting);
+
+  function clothingTipFromWeather(text) {
+    text = text.toLowerCase();
+    let tip = "Dress comfortably.";
+    if (text.includes("rain")) tip = "Carry an umbrella or raincoat.";
+    else if (text.includes("hot") || text.includes("sunny")) tip = "Wear light clothes.";
+    else if (text.includes("cold")) tip = "Dress warmly.";
+    document.getElementById("clothingTip").textContent = tip;
+  }
+
+  function estimateNoiseLevel(crowd) {
+    let noise = "Quiet";
+    const hour = new Date().getHours();
+    const isPeak = (hour >= 7 && hour <= 9) || (hour >= 17 && hour <= 20);
+    if (crowd.toLowerCase().includes("high")) noise = isPeak ? "Very loud" : "Loud";
+    else if (crowd.toLowerCase().includes("moderate")) noise = "Moderate";
+    document.getElementById("noiseLevel").textContent = noise;
+  }
+
+  function moodForecast(score) {
+    let mood = "Neutral vibes 🌫️";
+    if (score > 80) mood = "Positive vibes 🌞";
+    else if (score > 50) mood = "Mixed vibes 🌤️";
+    else mood = "Caution vibes 🌧️";
+    document.getElementById("moodForecast").textContent = mood;
+  }
+
+  function updateClock() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    document.getElementById('liveClock').textContent = `🕒 ${timeString}`;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
 </body>
 
 </html>

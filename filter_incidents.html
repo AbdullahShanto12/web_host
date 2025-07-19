@@ -359,6 +359,20 @@ h2, h3 {
 
 </aside>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Main Content -->
 <div class="content-wrapper">
   <div class="container-fluid">
@@ -374,14 +388,16 @@ h2, h3 {
         <option value="Vandalism">Vandalism</option>
       </select>
 
-      <label for="area">Area:</label>
-      <select id="area" aria-controls="incident-list">
-        <option value="">All</option>
-        <option value="Downtown">Downtown</option>
-        <option value="Uptown">Uptown</option>
-        <option value="Midtown">Midtown</option>
-        <option value="Old City">Old City</option>
-      </select>
+<label for="area">Area:</label>
+<select id="area" aria-controls="incident-list">
+  <option value="">All</option>
+  <option value="Dhanmondi">Dhanmondi</option>
+  <option value="Uttara">Uttara</option>
+  <option value="Jamuna">Jamuna</option>
+  <option value="Gulshan">Gulshan</option>
+  <option value="Mirpur">Mirpur</option>
+</select>
+
 
       <label for="date">Date:</label>
       <input type="date" id="date" aria-controls="incident-list" />
@@ -415,10 +431,39 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const markers = [];
 
 const dummyData = [
-  { category: 'Theft', area: 'Downtown', latitude: 23.8101, longitude: 90.4123, date: '2025-07-15', description: 'Bicycle theft near park.' },
-  { category: 'Robbery', area: 'Uptown', latitude: 23.8112, longitude: 90.4134, date: '2025-07-14', description: 'Mobile snatched at bus stop.' },
-  { category: 'Vandalism', area: 'Midtown', latitude: 23.8099, longitude: 90.4111, date: '2025-07-16', description: 'Graffiti on building wall.' }
+
+  // Dhanmondi - 4 incidents
+  { category: 'Assault', area: 'Dhanmondi', latitude: 23.7465, longitude: 90.3760, date: '2025-07-15', description: 'Physical assault reported near lake.' },
+  { category: 'Theft', area: 'Dhanmondi', latitude: 23.7480, longitude: 90.3775, date: '2025-07-14', description: 'Phone stolen at café.' },
+  { category: 'Robbery', area: 'Dhanmondi', latitude: 23.7450, longitude: 90.3750, date: '2025-07-13', description: 'Robbery near college campus.' },
+  { category: 'Vandalism', area: 'Dhanmondi', latitude: 23.7475, longitude: 90.3780, date: '2025-07-16', description: 'Window broken in residential area.' },
+
+  // Uttara - 3 incidents
+  { category: 'Theft', area: 'Uttara', latitude: 23.8750, longitude: 90.3975, date: '2025-07-13', description: 'Bag snatched in market area.' },
+  { category: 'Assault', area: 'Uttara', latitude: 23.8740, longitude: 90.3960, date: '2025-07-14', description: 'Fight broke out near bus stand.' },
+  { category: 'Robbery', area: 'Uttara', latitude: 23.8765, longitude: 90.3985, date: '2025-07-15', description: 'Robbery at ATM.' },
+
+  // Jamuna - 2 incidents
+  { category: 'Robbery', area: 'Jamuna', latitude: 23.8243, longitude: 90.3651, date: '2025-07-12', description: 'Robbery at a local store.' },
+  { category: 'Theft', area: 'Jamuna', latitude: 23.8250, longitude: 90.3660, date: '2025-07-13', description: 'Bike stolen near bridge.' },
+
+  // Gulshan - 5 incidents
+  { category: 'Vandalism', area: 'Gulshan', latitude: 23.7928, longitude: 90.4077, date: '2025-07-16', description: 'Car scratched on street.' },
+  { category: 'Theft', area: 'Gulshan', latitude: 23.7915, longitude: 90.4060, date: '2025-07-14', description: 'Wallet stolen in mall.' },
+  { category: 'Assault', area: 'Gulshan', latitude: 23.7935, longitude: 90.4085, date: '2025-07-15', description: 'Physical assault reported near park.' },
+  { category: 'Robbery', area: 'Gulshan', latitude: 23.7940, longitude: 90.4090, date: '2025-07-13', description: 'Robbery at ATM booth.' },
+  { category: 'Theft', area: 'Gulshan', latitude: 23.7920, longitude: 90.4055, date: '2025-07-12', description: 'Mobile phone stolen on street.' },
+
+  // Mirpur - 6 incidents
+  { category: 'Theft', area: 'Mirpur', latitude: 23.8100, longitude: 90.3550, date: '2025-07-14', description: 'Wallet stolen from bus.' },
+  { category: 'Assault', area: 'Mirpur', latitude: 23.8110, longitude: 90.3560, date: '2025-07-15', description: 'Fight near shopping center.' },
+  { category: 'Robbery', area: 'Mirpur', latitude: 23.8120, longitude: 90.3570, date: '2025-07-13', description: 'Robbery reported at market.' },
+  { category: 'Vandalism', area: 'Mirpur', latitude: 23.8130, longitude: 90.3580, date: '2025-07-16', description: 'Graffiti on community center.' },
+  { category: 'Theft', area: 'Mirpur', latitude: 23.8140, longitude: 90.3590, date: '2025-07-12', description: 'Bicycle stolen from park.' },
+  { category: 'Assault', area: 'Mirpur', latitude: 23.8150, longitude: 90.3600, date: '2025-07-11', description: 'Assault near school.' }
 ];
+
+
 
 function fetchFilteredData() {
   const category = document.getElementById("category").value;
