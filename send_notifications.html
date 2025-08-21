@@ -303,71 +303,67 @@
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav">
       <li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li>
-      <li class="nav-item d-none d-sm-inline-block"><a href="#" class="nav-link">Home</a></li>
+      <li class="nav-item d-none d-sm-inline-block"><a href="dashboard.html" class="nav-link">Home</a></li>
     </ul>
   </nav>
 
-  <!-- Sidebar -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="dashboard.php" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" />
-      <span class="brand-text font-weight-light">SafeWay</span>
-    </a>
-      <div class="sidebar">
-        <nav class="mt-3">
-          <ul class="nav nav-pills nav-sidebar flex-column" role="menu">
-            <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a></li>
-            <li class="nav-item"><a href="location_search.html" class="nav-link"><i class="nav-icon fas fa-search-location"></i><p>Basic Location Search</p></a></li>
-            <li class="nav-item"><a href="map_explore.html" class="nav-link"><i class="nav-icon fas fa-map-marked-alt"></i><p>Map Exploration</p></a></li>
-            <li class="nav-item"><a href="safety_ratings.html" class="nav-link"><i class="nav-icon fas fa-eye"></i><p>Visual Safety Ratings</p></a></li>
-            <li class="nav-item"><a href="check_safety.html" class="nav-link"><i class="nav-icon fas fa-shield-alt"></i><p>Check Before Going Out</p></a></li>
-            <li class="nav-item"><a href="identify_routes.html" class="nav-link"><i class="nav-icon fas fa-route"></i><p>Identify Safer Routes</p></a></li>
-            <li class="nav-item"><a href="filter_incidents.html" class="nav-link"><i class="nav-icon fas fa-filter"></i><p>Filter Incidents</p></a></li>
-            <li class="nav-item"><a href="crime_hotspot.html" class="nav-link"><i class="nav-icon fas fa-exclamation-triangle"></i><p>Crime Hotspot Tracker</p></a></li>
-            <li class="nav-item"><a href="community_resources.html" class="nav-link"><i class="nav-icon fas fa-hands-helping"></i><p>Community Resources</p></a></li>
-            <li class="nav-item"><a href="understand_factors.html" class="nav-link"><i class="nav-icon fas fa-lightbulb"></i><p>Understanding Safety Factors</p></a></li>
-            <li class="nav-item"><a href="legend_info.html" class="nav-link "><i class="nav-icon fas fa-map"></i><p>Using the Legend</p></a></li>
-            <li class="nav-item"><a href="send_notifications.html" class="nav-link active"><i class="nav-icon fas fa-bell"></i><p>Send Notifications</p></a></li>
-            <li class="nav-item"><a href="all_notifications.html" class="nav-link "><i class="nav-icon fas fa-bell"></i><p>All Notifications</p></a></li>
-            <li class="nav-item"><a href="emergency_calls.html" class="nav-link "><i class="nav-icon fas fa-phone-alt"></i><p>Emergency Calls</p></a></li>
-            <li class="nav-item"><a href="login.html" class="nav-link"><i class="nav-icon fas fa-sign-out-alt"></i><p>Logout</p></a></li>
-          </ul>
-        </nav>
-      </div>
-
-  </aside>
+    <!-- Sidebar -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <a href="dashboard.html" class="brand-link">
+    <img src="dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3">
+    <span class="brand-text font-weight-light">SafeWay</span>
+  </a>
+  <div class="sidebar">
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" role="menu">
+        <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p></a></li>
+        <li class="nav-item"><a href="location_search.html" class="nav-link"><i class="nav-icon fas fa-shield-alt"></i><p>Safety Control Center</p></a></li>
+        <li class="nav-item"><a href="safety_unified.html" class="nav-link"><i class="nav-icon fas fa-map-marked-alt"></i><p>Unified Safety Explorer</p></a></li>
+        <li class="nav-item"><a href="identify_routes.html" class="nav-link"><i class="nav-icon fas fa-route"></i><p>Identify Safer Routes</p></a></li>
+        <li class="nav-item"><a href="filter_incidents.html" class="nav-link"><i class="nav-icon fas fa-exclamation-triangle"></i><p>Incidents & Hotspots</p></a></li>
+        <li class="nav-item"><a href="community_resources.html" class="nav-link"><i class="nav-icon fas fa-hands-helping"></i><p>Community Resources</p></a></li>
+        <li class="nav-item"><a href="legend_info.html" class="nav-link "><i class="nav-icon fas fa-map"></i><p>Using the Legend</p></a></li>
+        <li class="nav-item"><a href="send_notifications.html" class="nav-link active"><i class="nav-icon fas fa-bell"></i><p>Send Notifications</p></a></li>
+        <li class="nav-item"><a href="all_notifications.html" class="nav-link"><i class="nav-icon fas fa-bell"></i><p>All Notifications</p></a></li>
+        <li class="nav-item"><a href="emergency_calls.html" class="nav-link"><i class="nav-icon fas fa-phone-alt"></i><p>Emergency Calls</p></a></li>
+        <li class="nav-item"><a href="login.html" class="nav-link"><i class="nav-icon fas fa-sign-out-alt"></i><p>Logout</p></a></li>
+      </ul>
+    </nav>
+  </div>
+</aside>
 
 
 
 
-<!-- Main Content -->
 <div class="content-wrapper p-3">
   <div class="container-fluid">
     <h2>Send Safety Notifications</h2>
     <p class="mb-4">Alert nearby users about safety hazards, disruptions, or real-time updates with precision and clarity.</p>
 
-    <div id="statusAlert" class="alert d-none"></div>
+    <!-- Status Message -->
+    <div id="statusBox"></div>
 
+    <!-- Notification Form -->
     <div class="notification-form">
       <form id="notificationForm">
         <div class="form-group">
           <label for="title">Notification Title</label>
-          <input type="text" class="form-control" id="title" name="title" required />
+          <input type="text" class="form-control" id="title" required />
         </div>
 
         <div class="form-group">
           <label for="message">Message Content</label>
-          <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+          <textarea class="form-control" id="message" rows="3" required></textarea>
         </div>
 
         <div class="form-group">
           <label for="location">Target Location</label>
-          <input type="text" class="form-control" id="location" name="location" required />
+          <input type="text" class="form-control" id="location" required />
         </div>
 
         <div class="form-group">
           <label for="category">Alert Category</label>
-          <select class="form-control" id="category" name="category" required>
+          <select class="form-control" id="category" required>
             <option value="crime">🚨 Crime or Suspicious Activity</option>
             <option value="weather">🌧 Weather or Environmental</option>
             <option value="traffic">🚗 Traffic or Road Hazard</option>
@@ -389,7 +385,7 @@
 
         <div class="form-group">
           <label for="urgency">Urgency Level</label>
-          <select class="form-control" id="urgency" name="urgency">
+          <select class="form-control" id="urgency">
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
@@ -399,7 +395,7 @@
 
         <div class="form-group">
           <label for="link">Optional Link</label>
-          <input type="url" class="form-control" id="link" name="link" placeholder="https://example.com" />
+          <input type="url" class="form-control" id="link" placeholder="https://example.com" />
         </div>
 
         <button type="submit" class="btn btn-danger btn-block">
@@ -411,24 +407,13 @@
     <!-- Live Summary -->
     <div class="info-panel mt-5">
       <h5>📢 Latest Safety Notifications</h5>
-      <ul id="liveNotifications">
-        <li><strong>Bridge Collapse</strong> — <em>Traffic</em> | <span class="badge badge-danger">Critical</span> | <small>Jul 18, 2025 02:32 PM</small></li>
-        <li><strong>Heavy Rainfall Warning</strong> — <em>Weather</em> | <span class="badge badge-warning">High</span> | <small>Jul 18, 2025 01:20 PM</small></li>
-        <li><strong>Power Outage in Sector 4</strong> — <em>Power_outage</em> | <span class="badge badge-info">Medium</span> | <small>Jul 18, 2025 12:10 PM</small></li>
-      </ul>
+      <ul id="latestNotifications"></ul>
     </div>
 
     <!-- Alert Snippets -->
     <div class="mt-4">
       <h5>🔔 Recent Alert Snippets</h5>
-      <div class="example-alert">
-        <i class="fas fa-shield-alt text-danger"></i>
-        <strong>Robbery at Central Mall:</strong> Suspect last seen heading east. Stay alert.
-      </div>
-      <div class="example-alert">
-        <i class="fas fa-bolt text-warning"></i>
-        <strong>Storm Warning:</strong> Avoid low-lying areas during the next 12 hours.
-      </div>
+      <div id="alertSnippets"></div>
     </div>
 
     <!-- My Notifications Table -->
@@ -447,49 +432,110 @@
               <th>Sent At</th>
             </tr>
           </thead>
-          <tbody id="myNotificationsTable">
-            <tr>
-              <td>Water Leak Alert</td>
-              <td>Main pipe burst near park.</td>
-              <td>North Street</td>
-              <td>General</td>
-              <td><span class="badge badge-info">Medium</span></td>
-              <td><a href="https://example.com" target="_blank">Link</a></td>
-              <td>Jul 18, 2025 10:45 AM</td>
-            </tr>
-            <tr>
-              <td>Fire Drill</td>
-              <td>Evacuation practice at 3 PM.</td>
-              <td>Main Office</td>
-              <td>Fire</td>
-              <td><span class="badge badge-success">Low</span></td>
-              <td>-</td>
-              <td>Jul 17, 2025 05:15 PM</td>
-            </tr>
-          </tbody>
+          <tbody id="notificationsTable"></tbody>
         </table>
       </div>
     </div>
+
   </div>
 </div>
 
-<!-- Scripts -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="dist/js/adminlte.min.js"></script>
-
 <script>
-  // Form submission mock
-  document.getElementById('notificationForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const alertBox = document.getElementById('statusAlert');
-    alertBox.className = 'alert alert-success';
-    alertBox.innerText = '🚀 Notification sent successfully!';
-    alertBox.classList.remove('d-none');
-    setTimeout(() => alertBox.classList.add('d-none'), 3000);
-    this.reset();
-  });
-</script>
+  // --- LocalStorage helpers ---
+  function getData(){ return JSON.parse(localStorage.getItem('notifications') || '[]'); }
+  function saveData(data){ localStorage.setItem('notifications', JSON.stringify(data)); }
 
+  // --- Form Submit ---
+  document.getElementById('notificationForm').onsubmit = function(e){
+    e.preventDefault();
+    let data = getData();
+    let newNotif = {
+      title: title.value,
+      message: message.value,
+      location: location.value,
+      category: category.value,
+      urgency: urgency.value,
+      link: link.value,
+      timestamp: new Date().toISOString()
+    };
+    data.unshift(newNotif);
+    saveData(data);
+    renderAll();
+    document.getElementById('statusBox').innerHTML = `<div class="alert alert-success">✅ Notification sent successfully!</div>`;
+    this.reset();
+    setTimeout(()=>document.getElementById('statusBox').innerHTML="",3000);
+  };
+
+  // --- Render Latest 5 ---
+  function renderLatest(){
+    let list=document.getElementById('latestNotifications');
+    let data=getData().slice(0,5);
+    if(!data.length){ list.innerHTML="<li>No recent notifications found.</li>"; return; }
+    list.innerHTML=data.map(n=>{
+      let badgeClass = n.urgency==="critical"?"danger":n.urgency==="high"?"warning":n.urgency==="medium"?"info":"success";
+      return `<li>
+        <strong>${n.title}</strong> — <em>${n.category}</em> | 
+        <span class="badge badge-${badgeClass}">${n.urgency}</span> | 
+        <small>${new Date(n.timestamp).toLocaleString()}</small>
+      </li>`;
+    }).join('');
+  }
+
+  // --- Render Alert Snippets ---
+  function renderSnippets(){
+    let box=document.getElementById('alertSnippets');
+    let data=getData().slice(0,5);
+    if(!data.length){ box.innerHTML="<p>No alert snippets found.</p>"; return; }
+    function getIcon(cat){
+      switch(cat){
+        case 'crime': return "fas fa-shield-alt text-danger";
+        case 'weather': return "fas fa-bolt text-warning";
+        case 'traffic': return "fas fa-road text-danger";
+        case 'emergency': return "fas fa-exclamation-triangle text-danger";
+        case 'fire': return "fas fa-fire text-danger";
+        case 'medical': return "fas fa-hospital-symbol text-info";
+        case 'general': return "fas fa-info-circle text-info";
+        default: return "fas fa-bell text-secondary";
+      }
+    }
+    box.innerHTML=data.map(n=>`
+      <div class="example-alert">
+        <i class="${getIcon(n.category)}"></i>
+        <strong>${n.title}:</strong> ${n.message}
+      </div>`).join('');
+  }
+
+  // --- Render Table ---
+  function renderTable(){
+    let table=document.getElementById('notificationsTable');
+    let data=getData();
+    if(!data.length){ table.innerHTML="<tr><td colspan='7'>No notifications found.</td></tr>"; return;}
+    table.innerHTML=data.map(n=>{
+      let badgeClass = n.urgency==="critical"?"danger":n.urgency==="high"?"warning":n.urgency==="medium"?"info":"success";
+      return `<tr>
+        <td>${n.title}</td>
+        <td>${n.message}</td>
+        <td>${n.location}</td>
+        <td>${n.category}</td>
+        <td><span class="badge badge-${badgeClass}">${n.urgency}</span></td>
+        <td>${n.link?`<a href="${n.link}" target="_blank">Link</a>`:"-"}</td>
+        <td>${new Date(n.timestamp).toLocaleString()}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // --- Render All ---
+  function renderAll(){
+    renderLatest();
+    renderSnippets();
+    renderTable();
+  }
+
+  // Init
+  renderAll();
+</script>
 </body>
 </html>

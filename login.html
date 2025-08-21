@@ -198,12 +198,12 @@ select:focus {
 }
 
   </style>
-</head>
-<body>
+</head><body>
   <main class="login-box" role="main" aria-label="Login form">
     <div class="login-logo">
       <a href="#">SafeWay</a>
     </div>
+
     <form id="loginForm" novalidate>
       <label for="email"></label>
       <input type="email" id="email" placeholder="Email Address" required aria-required="true" />
@@ -222,8 +222,6 @@ select:focus {
       </select>
 
       <button type="submit" aria-label="Login to SafeWay">Login</button>
-
-      <div id="alertBox" class="alert" role="alert" aria-live="polite"></div>
     </form>
 
     <a href="signup.html" class="signup-link" aria-label="Go to Sign up page">
@@ -232,56 +230,9 @@ select:focus {
   </main>
 
   <script>
-    const dummyUsers = [
-      { email: "abdullah@gmail.com", password: "1111", role: "admin", name: "Admin User" },
-      { email: "abdullah@gmail.com", password: "1111", role: "Students", name: "Student User" },
-      { email: "abdullah@gmail.com", password: "1111", role: "Tourists", name: "Tourist User" },
-      { email: "abdullah@gmail.com", password: "1111", role: "Dwellers", name: "Dweller User" },
-      { email: "abdullah@gmail.com", password: "1111", role: "Workers", name: "Worker User" }
-    ];
-
     document.getElementById("loginForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value;
-      const role = document.getElementById("role").value;
-      const alertBox = document.getElementById("alertBox");
-
-      alertBox.style.display = "none";
-      alertBox.textContent = "";
-      alertBox.className = "alert";
-
-      if (!email || !password || !role) {
-        alertBox.textContent = "Please fill in all fields.";
-        alertBox.classList.add("alert-error");
-        alertBox.style.display = "block";
-        return;
-      }
-
-      const user = dummyUsers.find(u => u.email === email && u.role === role);
-
-      if (!user) {
-        alertBox.textContent = "No user found with that email and role.";
-        alertBox.classList.add("alert-error");
-        alertBox.style.display = "block";
-        return;
-      }
-
-      if (user.password !== password) {
-        alertBox.textContent = "Incorrect password!";
-        alertBox.classList.add("alert-error");
-        alertBox.style.display = "block";
-        return;
-      }
-
-      alertBox.textContent = `Welcome, ${user.name}! Redirecting...`;
-      alertBox.classList.add("alert-success");
-      alertBox.style.display = "block";
-
-      setTimeout(() => {
-        window.location.href = "dashboard.html";
-      }, 1500);
+      e.preventDefault(); // Stop normal form submission
+      window.location.href = "dashboard.html"; // Go straight to dashboard
     });
   </script>
 </body>
